@@ -15,10 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoIntegradoTeste.Data\ProjetoIntegradoTeste.Data.csproj" />
-    <ProjectReference Include="..\ProjetoIntegradoTeste.Domain\ProjetoIntegradoTeste.Domain.csproj" />
-    <ProjectReference Include="..\ProjetoIntegradoTeste.PayPal\ProjetoIntegradoTeste.PayPal.csproj" />
-    <ProjectReference Include="..\ProjetoIntegradoTeste.SendGrid\ProjetoIntegradoTeste.SendGrid.csproj" />
+    <ProjectReference Include="..\ProjetoIntegradoTeste.Data\HomeCare.Data.csproj" />
+    <ProjectReference Include="..\ProjetoIntegradoTeste.Domain\HomeCare.Domain.csproj" />
+    <ProjectReference Include="..\ProjetoIntegradoTeste.PayPal\HomeCare.PayPal.csproj" />
+    <ProjectReference Include="..\ProjetoIntegradoTeste.SendGrid\HomeCare.SendGrid.csproj" />
   </ItemGroup>
 
 </Project>
