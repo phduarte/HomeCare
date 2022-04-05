@@ -3,3 +3,21 @@
 ################################################################################
 
 /.vs/ProjetoIntegradoTeste
+/ProjetoIntegradoTeste/bin/Debug/net6.0
+/ProjetoIntegradoTeste/obj
+/ProjetoIntegradoTeste.Common/bin/Debug/net6.0
+/ProjetoIntegradoTeste.Common/obj
+/ProjetoIntegradoTeste.Data/obj
+/ProjetoIntegradoTeste.Data/bin/Debug/net6.0
+/ProjetoIntegradoTeste.Domain/bin/Debug/net6.0
+/ProjetoIntegradoTeste.Domain/obj
+/ProjetoIntegradoTeste.PaymentRefundWorker/bin/Debug/net6.0
+/ProjetoIntegradoTeste.PaymentRefundWorker/obj
+/ProjetoIntegradoTeste.PayPal/bin/Debug/net6.0
+/ProjetoIntegradoTeste.PayPal/obj
+/ProjetoIntegradoTeste.ProcessPaymentWorker/bin/Debug/net6.0
+/ProjetoIntegradoTeste.ProcessPaymentWorker/obj
+/ProjetoIntegradoTeste.RabbitMQ/bin/Debug/net6.0
+/ProjetoIntegradoTeste.RabbitMQ/obj
+/ProjetoIntegradoTeste.SendGrid/bin/Debug/net6.0
+/ProjetoIntegradoTeste.SendGrid/obj
