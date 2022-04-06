@@ -7,6 +7,7 @@
         public int Rate { get; set; } = 5;
         public Money Price { get; set; }
         public Location Location { get; set; }
+        public string Email { get; set; }
 
         public bool Match(SearchCriteria criteria)
         {

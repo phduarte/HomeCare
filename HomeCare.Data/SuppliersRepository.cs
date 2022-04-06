@@ -18,7 +18,8 @@ namespace HomeCare.Data
                     Latitude = 2,
                     Longitude = 2,
                     Range = 1
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -32,7 +33,8 @@ namespace HomeCare.Data
                     Latitude = 5,
                     Longitude = 5,
                     Range = 5
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -46,7 +48,8 @@ namespace HomeCare.Data
                     Latitude = 2,
                     Longitude = 9,
                     Range = 3
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -60,7 +63,8 @@ namespace HomeCare.Data
                     Latitude = 3,
                     Longitude = 14,
                     Range = 2
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -74,7 +78,8 @@ namespace HomeCare.Data
                     Latitude = 7,
                     Longitude = 5,
                     Range = 5
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -88,7 +93,8 @@ namespace HomeCare.Data
                     Latitude = 6,
                     Longitude = 6,
                     Range = 10
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -102,7 +108,8 @@ namespace HomeCare.Data
                     Latitude = 12,
                     Longitude = 1,
                     Range = 5
-                }
+                },
+                Email="phduarte87@outlook.com"
             },
             new Supplier
             {
@@ -116,7 +123,8 @@ namespace HomeCare.Data
                     Latitude = 8,
                     Longitude = 3,
                     Range = 10
-                }
+                },
+                Email="phduarte87@outlook.com"
             }
         };
 
