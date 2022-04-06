@@ -146,12 +146,22 @@ Contém o detalhamento das especificações do sistema.
 
 # Domínio Contratação de Serviços
 
-![projeto_integrado-Caso de Uso.drawio.png](/.attachments/projeto_integrado-Caso%20de%20Uso.drawio-7cf71719-1e0a-40e1-a68c-330eddc9eab0.png)
+![projeto_integrado-Caso de Uso.drawio.png](/caso-uso.png)
 
 #UC03 - Pagar Serviço
 
-![projeto_integrado-Sequence.drawio (1).png](/.attachments/projeto_integrado-Sequence.drawio%20(1)-31d6ad52-df18-4eda-a989-bbc25f710685.png)
+![projeto_integrado-Sequence.drawio (1).png](/sequencia.png)
 
+# Desenho da Arquitetura do Software
+
+![projeto_integrado-DAS.drawio.png](/desenho-arquitetura.png)
+
+## Referência
+
+- Na matéria de Análise do Eduardo, a segunda aula fala sobre EDA (Arqtuitetura guiada por Eventos).
+- Ferramenta usada para definição de uma arquitetura EDA via YAML https://www.asyncapi.com/docs/getting-started
+- Na matéria de API e WebServices fizemos um diagrama que pode ser usado como base.
+- 
 # Architectural Decision Record
 
 ## Objetivo
@@ -202,7 +212,7 @@ Aqui fizemos uma avaliação em forma de matriz contendo cada critério e ponder
 2 - É importante, se tiver será um diferencial.
 3 - É crítico, é fundamental que tenha.
 
-![image.png](/.attachments/image-bc2814a0-4e61-4b3a-b689-03abffe3d70c.png)
+![image.png](/adr.png)
 
 # Referência
 
