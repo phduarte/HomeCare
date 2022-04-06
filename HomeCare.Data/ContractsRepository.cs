@@ -1,7 +1,6 @@
 ﻿using HomeCare.Domain.Contracts;
-using ProjetoIntegradoTeste.Domain.Contracts;
 
-namespace ProjetoIntegradoTeste.Infrastructure.Data
+namespace HomeCare.Data
 {
     internal class ContractsRepository : IContractsRepository
     {

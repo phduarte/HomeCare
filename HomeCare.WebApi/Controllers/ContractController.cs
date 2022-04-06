@@ -1,9 +1,8 @@
 ﻿using HomeCare.Domain.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoIntegradoTeste.Domain.Contracts;
-using ProjetoIntegradoTeste.Models;
+using HomeCare.Models;
 
-namespace ProjetoIntegradoTeste.Controllers
+namespace HomeCare.Controllers
 {
     [ApiController]
     [Route("api/v1/public/hire")]

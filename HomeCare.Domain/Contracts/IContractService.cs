@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Contracts;
 
-namespace ProjetoIntegradoTeste.Domain.Contracts
+namespace HomeCare.Domain.Contracts
 {
     public interface IContractService
     {

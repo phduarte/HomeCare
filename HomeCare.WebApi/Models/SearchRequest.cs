@@ -1,8 +1,8 @@
-﻿using ProjetoIntegradoTeste.Domain.Suppliers;
+﻿using HomeCare.Domain.Suppliers;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProjetoIntegradoTeste.Models
+namespace HomeCare.Models
 {
     public class SearchRequest
     {

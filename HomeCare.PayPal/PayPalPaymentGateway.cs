@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Payments;
+﻿using HomeCare.Domain.Payments;
 
-namespace ProjetoIntegradoTeste.PayPal
+namespace HomeCare.PayPal
 {
     public class PayPalPaymentGateway : IPaymentGateway
     {

@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Suppliers;
+﻿using HomeCare.Domain.Suppliers;
 
-namespace ProjetoIntegradoTeste.Infrastructure.Data
+namespace HomeCare.Data
 {
     public class SuppliersRepository : ISuppliersRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain
+﻿namespace HomeCare.Domain
 {
     public interface ISpecification<T> where T : IAggregateRoot
     {

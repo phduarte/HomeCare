@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Models
+﻿namespace HomeCare.Models
 {
     public class PaymentResponse
     {

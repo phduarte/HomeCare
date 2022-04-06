@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Contracts;
 
-namespace ProjetoIntegradoTeste.Models
+namespace HomeCare.Models
 {
     public class ContractRequest
     {

@@ -1,8 +1,8 @@
 ﻿using HomeCare.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoIntegradoTeste.Domain.Clients;
+using HomeCare.Domain.Clients;
 
-namespace ProjetoIntegradoTeste.Controllers
+namespace HomeCare.Controllers
 {
     [ApiController]
     [Route("api/v1/public/client")]

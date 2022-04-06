@@ -1,4 +1,4 @@
-﻿using ProjetoIntegradoTeste.Domain;
+﻿using HomeCare.Domain;
 
 namespace HomeCare.Domain.Contracts
 {

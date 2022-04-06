@@ -1,7 +1,7 @@
-﻿using ProjetoIntegradoTeste.Domain.Clients;
-using ProjetoIntegradoTeste.Domain.Suppliers;
+﻿using HomeCare.Domain.Clients;
+using HomeCare.Domain.Suppliers;
 
-namespace ProjetoIntegradoTeste.Domain.Contracts
+namespace HomeCare.Domain.Contracts
 {
     public class Contract : Entity<Guid>, IAggregateRoot
     {

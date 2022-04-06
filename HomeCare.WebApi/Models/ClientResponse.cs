@@ -1,4 +1,4 @@
-﻿using ProjetoIntegradoTeste.Domain.Clients;
+﻿using HomeCare.Domain.Clients;
 
 namespace HomeCare.WebApi.Models
 {

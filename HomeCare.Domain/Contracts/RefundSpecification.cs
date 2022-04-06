@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain.Contracts
+﻿namespace HomeCare.Domain.Contracts
 {
     public class RefundSpecification : ISpecification<Contract>
     {

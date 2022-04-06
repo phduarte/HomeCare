@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain.Clients
+﻿namespace HomeCare.Domain.Clients
 {
     public interface IClientRepository : IRepository<Client>
     {

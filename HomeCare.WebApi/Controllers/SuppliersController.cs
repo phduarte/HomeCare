@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using ProjetoIntegradoTeste.Domain.Suppliers;
-using ProjetoIntegradoTeste.Models;
+using HomeCare.Domain.Suppliers;
+using HomeCare.Models;
 
-namespace ProjetoIntegradoTeste.Controllers
+namespace HomeCare.Controllers
 {
     [ApiController]
     [Route("api/v1/public/suppliers")]

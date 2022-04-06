@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain
+﻿namespace HomeCare.Domain
 {
     public abstract class ValueObject
     {

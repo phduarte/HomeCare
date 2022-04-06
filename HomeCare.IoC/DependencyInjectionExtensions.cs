@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ProjetoIntegradoTeste.Data;
-using ProjetoIntegradoTeste.Domain;
-using ProjetoIntegradoTeste.PayPal;
-using ProjetoIntegradoTeste.RabbitMQ;
-using ProjetoIntegradoTeste.SendGrid;
+using HomeCare.Data;
+using HomeCare.Domain;
+using HomeCare.PayPal;
+using HomeCare.RabbitMQ;
+using HomeCare.SendGrid;
 
 namespace HomeCare.IoC
 {

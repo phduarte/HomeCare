@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoIntegradoTeste.Models;
+using HomeCare.Models;
 
-namespace ProjetoIntegradoTeste.Controllers
+namespace HomeCare.Controllers
 {
     [ApiController]
     [Route("api/v1/public/payment")]

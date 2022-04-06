@@ -1,6 +1,6 @@
 ﻿using HomeCare.Common;
 
-namespace ProjetoIntegradoTeste.Domain.Suppliers
+namespace HomeCare.Domain.Suppliers
 {
     public class Location : ValueObject
     {

@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
-using ProjetoIntegradoTeste.Domain;
+using HomeCare.Domain;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 
-namespace ProjetoIntegradoTeste.RabbitMQ
+namespace HomeCare.RabbitMQ
 {
     public class MessageBroker<T> : IMessageBroker<T>
     {

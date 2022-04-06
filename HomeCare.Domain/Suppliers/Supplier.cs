@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain.Suppliers
+﻿namespace HomeCare.Domain.Suppliers
 {
     public class Supplier : Entity<Guid>, IAggregateRoot
     {

@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain.Clients
+﻿namespace HomeCare.Domain.Clients
 {
     internal class ClientService : IClientService
     {

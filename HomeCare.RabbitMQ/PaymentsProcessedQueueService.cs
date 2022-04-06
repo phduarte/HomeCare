@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Payments;
+﻿using HomeCare.Domain.Payments;
 
-namespace ProjetoIntegradoTeste.RabbitMQ
+namespace HomeCare.RabbitMQ
 {
     internal class PaymentsProcessedQueueService : IPaymentsProcessedQueueService
     {

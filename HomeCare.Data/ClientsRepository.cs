@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Clients;
+﻿using HomeCare.Domain.Clients;
 
-namespace ProjetoIntegradoTeste.Infrastructure.Data
+namespace HomeCare.Data
 {
     public class ClientsRepository : IClientRepository
     {

@@ -1,9 +1,9 @@
 ﻿using HomeCare.Domain.Contracts;
-using ProjetoIntegradoTeste.Domain.Clients;
-using ProjetoIntegradoTeste.Domain.Payments;
-using ProjetoIntegradoTeste.Domain.Suppliers;
+using HomeCare.Domain.Clients;
+using HomeCare.Domain.Payments;
+using HomeCare.Domain.Suppliers;
 
-namespace ProjetoIntegradoTeste.Domain.Contracts
+namespace HomeCare.Domain.Contracts
 {
     internal class ContractService : IContractService
     {

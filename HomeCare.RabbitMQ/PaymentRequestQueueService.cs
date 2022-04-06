@@ -1,11 +1,11 @@
-﻿using ProjetoIntegradoTeste.Domain.Payments;
+﻿using HomeCare.Domain.Payments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoIntegradoTeste.RabbitMQ
+namespace HomeCare.RabbitMQ
 {
     internal class PaymentRequestQueueService : IPaymentRequestQueueService
     {

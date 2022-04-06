@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using ProjetoIntegradoTeste.Domain.Payments;
-using ProjetoIntegradoTeste.RabbitMQ;
+using HomeCare.Domain.Payments;
+using HomeCare.RabbitMQ;
 
 Console.WriteLine("Hello, World!");
 

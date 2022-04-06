@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ProjetoIntegradoTeste.Domain.Payments;
+using HomeCare.Domain.Payments;
 
-namespace ProjetoIntegradoTeste.RabbitMQ
+namespace HomeCare.RabbitMQ
 {
     public static class DependencyInjectionExtensions
     {

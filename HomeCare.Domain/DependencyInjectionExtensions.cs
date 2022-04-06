@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ProjetoIntegradoTeste.Domain.Clients;
-using ProjetoIntegradoTeste.Domain.Contracts;
-using ProjetoIntegradoTeste.Domain.Payments;
-using ProjetoIntegradoTeste.Domain.Suppliers;
+using HomeCare.Domain.Clients;
+using HomeCare.Domain.Contracts;
+using HomeCare.Domain.Payments;
+using HomeCare.Domain.Suppliers;
 
-namespace ProjetoIntegradoTeste.Domain
+namespace HomeCare.Domain
 {
     public static class DependencyInjectionExtensions
     {

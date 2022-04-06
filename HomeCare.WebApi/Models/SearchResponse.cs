@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Suppliers;
+﻿using HomeCare.Domain.Suppliers;
 
-namespace ProjetoIntegradoTeste.Models
+namespace HomeCare.Models
 {
     public class SearchResponse
     {

@@ -1,6 +1,6 @@
-﻿using ProjetoIntegradoTeste.Domain.Payments;
+﻿using HomeCare.Domain.Payments;
 
-namespace ProjetoIntegradoTeste.Infrastructure.Data
+namespace HomeCare.Data
 {
     public class PaymentsRepository : IPaymentsRepository
     {

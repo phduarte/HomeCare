@@ -1,7 +1,7 @@
-﻿using ProjetoIntegradoTeste.Domain.Contracts;
-using ProjetoIntegradoTeste.Domain.Payments;
+﻿using HomeCare.Domain.Contracts;
+using HomeCare.Domain.Payments;
 
-namespace ProjetoIntegradoTeste.SendGrid
+namespace HomeCare.SendGrid
 {
     public class SendGridNotificationFacade : IPaymentNotificationFacade, IContractFinishedNotificationFacade
     {

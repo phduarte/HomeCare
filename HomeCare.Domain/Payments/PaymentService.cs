@@ -1,4 +1,4 @@
-﻿namespace ProjetoIntegradoTeste.Domain.Payments
+﻿namespace HomeCare.Domain.Payments
 {
     internal class PaymentService : IPaymentService
     {
