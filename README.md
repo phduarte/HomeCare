@@ -201,6 +201,18 @@ O redesenho do framework .NET que resultou no .NET Core o tornou uma ótima alte
 
 A curva de aprendizado acabou sendo injusta com o NodeJs, pois os integrantes da equipe não possuem proficiência em NodeJs e a disciplina começou ser ministrada após o Projeto Integrado já estar em andamento. Como o objetivo da PoC não é comparar a adoção de uma plataforma, optamos em utilizar .NET Core dessa forma podemos focar os estudos no modelo de desenvolvimento orientado a eventos que é um objetivo da PoC.
 
+### Conclusão
+
+Fizemos uma avaliação no formato de matriz com critérios e ponderações baseadas no grau de importância para o projeto no momento da análise.
+
+**Peso dos critérios:**
+
+- 1 - Útil, mas não é obrigatório.
+- 2 - Importante, se tiver será um diferencial.
+- 3 - Crítico, é obrigatório ter.
+
+![image.png](/adr.png)
+
 ## Mensageria
 
 RabbitMQ é um servidor de mensageria Open Source desenvolvido em Erlang, implementado para suportar mensagens em um protocolo denominado Advanced Message Queuing Protocol (AMQP). Ele possibilita lidar com o tráfego de mensagens de forma rápida e confiável, além de ser compatível com diversas linguagens de programação, possuir interface de administração nativa e ser multiplataforma.
@@ -212,18 +224,6 @@ Nessa PoC, optamos por utilizar o RabbitMQ as a Service, o que traz a facilidade
 ## Banco de Dados
 
 ...
-
-# Resumo
-
-Fizemos uma avaliação no formato de matriz com critérios e ponderações baseadas no grau de importância para o projeto no momento da análise.
-
-## Peso dos critérios
-
-- 1 - Útil, mas não é obrigatório.
-- 2 - Importante, se tiver será um diferencial.
-- 3 - Crítico, é obrigatório ter.
-
-![image.png](/adr.png)
 
 ## Referência
 
