@@ -19,7 +19,7 @@ namespace HomeCare.Models
             {
                 SupplierId = supplier.Id,
                 Name = supplier.Name,
-                Price = supplier.Price.Value,
+                Price = supplier.Price.Amount,
                 Rate = supplier.Rate,
                 Latitude = supplier.Location.Latitude,
                 Longitude = supplier.Location.Longitude,

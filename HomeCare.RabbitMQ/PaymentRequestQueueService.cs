@@ -1,9 +1,4 @@
 ﻿using HomeCare.Domain.Payments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeCare.RabbitMQ
 {
@@ -11,7 +6,8 @@ namespace HomeCare.RabbitMQ
     {
         public void Publish(Payment payment)
         {
-            //throw new NotImplementedException();
+            var messageBroker = new MessageBroker<Payment>("payments_requested");
+            messageBroker.Publish(payment);
         }
     }
 }

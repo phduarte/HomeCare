@@ -1,4 +1,4 @@
-﻿namespace HomeCare.Domain
+﻿namespace HomeCare.RabbitMQ
 {
     public delegate void MessageReceivedEventHandler<T>(T message);
 

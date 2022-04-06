@@ -43,8 +43,8 @@ namespace HomeCare.Domain.Contracts
             };
 
             _contractsRepository.Create(contract);
-            _notificationFacade.Notify(contract);
             _paymentRequestQueue.Publish(payment);
+            _notificationFacade.Notify(contract);
 
             return contract;
         }

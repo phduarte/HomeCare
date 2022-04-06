@@ -18,26 +18,30 @@
             _notificationFacade = notificationFacade;
         }
 
-        public void Pay(Payment payment)
+        public PaymentReceipt Pay(Payment payment)
         {
             var request = RequestForPayment.CreateDebitFor(payment);
 
-            _paymentGateway.Proccess(request);
+            var receipt = _paymentGateway.Proccess(request);
 
-            payment.Paid();
+            payment.Paid(receipt);
 
             _paymentsProcessedQueue.Publish(payment);
+
+            return receipt;
         }
 
-        public void Refund(Payment payment)
+        public PaymentReceipt Refund(Payment payment)
         {
             var request = RequestForPayment.CreateCreditFor(payment);
 
-            _paymentGateway.Proccess(request);
+            var receipt = _paymentGateway.Proccess(request);
 
-            payment.Reversed();
+            payment.Reversed(receipt);
 
             _paymentsProcessedQueue.Publish(payment);
+
+            return receipt;
         }
 
         /// <summary>

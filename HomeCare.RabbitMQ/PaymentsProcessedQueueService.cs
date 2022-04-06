@@ -6,7 +6,8 @@ namespace HomeCare.RabbitMQ
     {
         public void Publish(Payment payment)
         {
-            throw new NotImplementedException();
+            var messageBroker = new MessageBroker<Payment>("payments_processed");
+            messageBroker.Publish(payment);
         }
     }
 }

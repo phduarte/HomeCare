@@ -1,28 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
-using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Payments;
 using HomeCare.RabbitMQ;
+using System.Net.Http.Json;
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Worker de Estorno!");
 
-var messageBroker = new MessageBroker<Payment>("https://jackal.rmq.cloudamqp.com/", "payments_requested");
-var continua = true;
+// 
+var messageBroker = new MessageBroker<Payment>("payments_processed");
+var client = new HttpClient();
 
-do
+Console.WriteLine($"{DateTime.Now} - ProcessPaymentWorker started.");
+
+messageBroker.StartConsume((p) =>
 {
-    try
-    {
-        var message = new Payment();
+    var result = client.PostAsJsonAsync("https://localhost:7258/api/v1/public/payment/complete", p).Result;
+    result.EnsureSuccessStatusCode();
 
-        messageBroker.Publish(message);
+    Console.WriteLine($"{DateTime.Now} - Payment {p.Id} completed. {result}");
+});
 
-        Console.WriteLine($"{DateTime.Now} - Payment {message.Id} sent.");
-    }
-    catch
-    {
-        continua = false;
-    }
-
-} while (continua);
-
-Console.WriteLine(" Press [enter] to exit.");
+Console.WriteLine($"{DateTime.Now} - ProcessPaymentWorker finished.");
 Console.ReadLine();

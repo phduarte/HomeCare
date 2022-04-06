@@ -2,17 +2,17 @@
 {
     public class Money : ValueObject
     {
-        public decimal Value { get; set; }
+        public decimal Amount { get; set; }
         public string Currency { get; set; }
 
         public override string ToString()
         {
-            return $"{Currency} {Value:N2}";
+            return $"{Currency} {Amount:N2}";
         }
 
         public static implicit operator decimal(Money money)
         {
-            return money.Value;
+            return money.Amount;
         }
 
         public static implicit operator Money(decimal money)
@@ -25,13 +25,13 @@
             return new Money
             {
                 Currency = "BRL",
-                Value = price,
+                Amount = price,
             };
         }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
-            yield return Value;
+            yield return Amount;
             yield return Currency;
         }
     }

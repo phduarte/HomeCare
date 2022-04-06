@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using HomeCare.Domain;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -9,13 +8,12 @@ namespace HomeCare.RabbitMQ
     public class MessageBroker<T> : IMessageBroker<T>
     {
         private readonly string _queueName;
-        private readonly string _hostName;
+        private readonly string _uri = "amqps://nnbhglxk:OyPflRd0OVBDL6w5XuXz-bLMTYqIZNlH@jackal.rmq.cloudamqp.com/nnbhglxk";
 
         public event MessageReceivedEventHandler<T> MessageReceived;
 
-        public MessageBroker(string hostname, string queueName)
+        public MessageBroker(string queueName)
         {
-            _hostName = hostname;
             _queueName = queueName;
 
             Setup();
@@ -75,7 +73,7 @@ namespace HomeCare.RabbitMQ
 
         private IModel CreateChannel()
         {
-            var factory = new ConnectionFactory() { HostName = _hostName };
+            var factory = new ConnectionFactory() { Uri = new Uri(_uri) };
             var connection = factory.CreateConnection();
             return connection.CreateModel();
         }

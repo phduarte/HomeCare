@@ -5,7 +5,7 @@
         public string Description { get; set; }
         public IList<PaymentEvent> Events { get; set; } = new List<PaymentEvent>();
         public Money Value { get; set; }
-        public PaymentReceipt Receipt { get; set; }
+        public PaymentReceipt? Receipt { get; set; }
         public PaymentStatus Status { get; set; } = PaymentStatus.Created;
         public PaymentEvent LastEvent => Events.LastOrDefault();
 
@@ -16,7 +16,7 @@
                 Id = Guid.NewGuid(),
                 CreatedAt = DateTime.Now,
                 CreatedBy = "paulo",
-                Payment = this,
+                //Payment = this,
                 Status = PaymentStatus.Created
             });
         }
@@ -26,9 +26,10 @@
             return $"{Value} - {Status}";
         }
 
-        public void Paid()
+        public void Paid(PaymentReceipt receipt)
         {
             Status = PaymentStatus.Confirmed;
+            Receipt = receipt;
 
             Events.Add(new PaymentEvent
             {
@@ -36,13 +37,14 @@
                 Status = PaymentStatus.Confirmed,
                 CreatedAt = DateTime.UtcNow,
                 CreatedBy = "paulo",
-                Payment = this
+                //Payment = this
             });
         }
 
-        public void Reversed()
+        public void Reversed(PaymentReceipt receipt)
         {
             Status = PaymentStatus.Rejected;
+            Receipt = receipt;
 
             Events.Add(new PaymentEvent
             {
@@ -50,7 +52,7 @@
                 Status = PaymentStatus.Rejected,
                 CreatedAt = DateTime.UtcNow,
                 CreatedBy = "paulo",
-                Payment = this
+                //Payment = this
             });
         }
     }

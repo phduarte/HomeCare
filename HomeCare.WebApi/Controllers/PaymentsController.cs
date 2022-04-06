@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using HomeCare.Models;
+using HomeCare.Domain.Payments;
 
 namespace HomeCare.Controllers
 {
@@ -8,24 +8,57 @@ namespace HomeCare.Controllers
     public class PaymentsController : ControllerBase
     {
         private readonly ILogger<PaymentsController> _logger;
+        private readonly IPaymentService _paymentService;
 
-        public PaymentsController(ILogger<PaymentsController> logger)
+        public PaymentsController(ILogger<PaymentsController> logger, IPaymentService paymentService)
         {
             _logger = logger;
+            _paymentService = paymentService;
         }
 
         [HttpPost("pay")]
-        [ProducesDefaultResponseType(typeof(PaymentResponse))]
-        public IActionResult Pay(PaymentRequest request)
+        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
+        public IActionResult Pay(Payment request)
         {
-            return Ok(string.Empty);
+            try
+            {
+                var receipt = _paymentService.Pay(request);
+                return Ok(receipt);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         [HttpPost("refund")]
-        [ProducesDefaultResponseType(typeof(RefundResponse))]
-        public IActionResult Refund(RefundRequest request)
+        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
+        public IActionResult Refund(Payment request)
         {
-            return Ok(string.Empty);
+            try
+            {
+                var receipt = _paymentService.Refund(request);
+                return Ok(receipt);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("complete")]
+        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
+        public IActionResult Complete(Payment request)
+        {
+            try
+            {
+                _paymentService.Complete(request);
+                return Ok(request);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }
