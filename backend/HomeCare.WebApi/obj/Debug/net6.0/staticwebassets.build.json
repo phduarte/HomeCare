@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "eMgtsNHGSgDjax2I5dmf3+w3ol9S0D+3bHT8Zf1DYwE=",
+  "Source": "HomeCare.WebApi",
+  "BasePath": "_content/HomeCare.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

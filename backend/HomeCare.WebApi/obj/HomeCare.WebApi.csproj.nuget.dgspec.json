@@ -1,0 +1,543 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.WebApi\\HomeCare.WebApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\HomeCare.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\HomeCare.Common.csproj",
+        "projectName": "HomeCare.Common",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\HomeCare.Common.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\HomeCare.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\HomeCare.Data.csproj",
+        "projectName": "HomeCare.Data",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\HomeCare.Data.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj",
+        "projectName": "HomeCare.Domain",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\HomeCare.Common.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Common\\HomeCare.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\HomeCare.IoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\HomeCare.IoC.csproj",
+        "projectName": "HomeCare.IoC",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\HomeCare.IoC.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\HomeCare.Data.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Data\\HomeCare.Data.csproj"
+              },
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj"
+              },
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\HomeCare.PayPal.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\HomeCare.PayPal.csproj"
+              },
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\HomeCare.RabbitMQ.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\HomeCare.RabbitMQ.csproj"
+              },
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\HomeCare.SendGrid.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\HomeCare.SendGrid.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\HomeCare.PayPal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\HomeCare.PayPal.csproj",
+        "projectName": "HomeCare.PayPal",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\HomeCare.PayPal.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.PayPal\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\HomeCare.RabbitMQ.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\HomeCare.RabbitMQ.csproj",
+        "projectName": "HomeCare.RabbitMQ",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\HomeCare.RabbitMQ.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.RabbitMQ\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\HomeCare.SendGrid.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\HomeCare.SendGrid.csproj",
+        "projectName": "HomeCare.SendGrid",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\HomeCare.SendGrid.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.SendGrid\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.Domain\\HomeCare.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.WebApi\\HomeCare.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.WebApi\\HomeCare.WebApi.csproj",
+        "projectName": "HomeCare.WebApi",
+        "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.WebApi\\HomeCare.WebApi.csproj",
+        "packagesPath": "C:\\Users\\phdua\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\phdua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\HomeCare.IoC.csproj": {
+                "projectPath": "C:\\Users\\phdua\\source\\repos\\ProjetoIntegradoTeste\\HomeCare.IoC\\HomeCare.IoC.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

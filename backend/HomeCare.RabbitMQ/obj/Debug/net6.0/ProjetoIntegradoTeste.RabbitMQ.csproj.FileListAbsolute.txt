@@ -1,0 +1,15 @@
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\bin\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.deps.json
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\bin\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.dll
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\bin\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.pdb
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\bin\Debug\net6.0\ProjetoIntegradoTeste.Domain.dll
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\bin\Debug\net6.0\ProjetoIntegradoTeste.Domain.pdb
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.csproj.AssemblyReference.cache
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.AssemblyInfoInputs.cache
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.AssemblyInfo.cs
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.csproj.CoreCompileInputs.cache
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.csproj.CopyComplete
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.dll
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\refint\ProjetoIntegradoTeste.RabbitMQ.dll
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ProjetoIntegradoTeste.RabbitMQ.pdb
+C:\Users\phdua\source\repos\ProjetoIntegradoTeste\ProjetoIntegradoTeste.RabbitMQ\obj\Debug\net6.0\ref\ProjetoIntegradoTeste.RabbitMQ.dll
