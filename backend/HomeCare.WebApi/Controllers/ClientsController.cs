@@ -5,7 +5,7 @@ using HomeCare.Domain.Clients;
 namespace HomeCare.Controllers
 {
     [ApiController]
-    [Route("api/v1/public/client")]
+    [Route("v1/public/client")]
     public class ClientsController : ControllerBase
     {
         private readonly ILogger<ClientsController> _logger;
@@ -18,9 +18,9 @@ namespace HomeCare.Controllers
             _clientsService = clientsService;
         }
 
-        [HttpPost("get")]
+        [HttpGet("username/{username}")]
         [ProducesDefaultResponseType(typeof(ClientResponse))]
-        public IActionResult Get(string username)
+        public IActionResult GetByUsername(string username)
         {
             _logger.LogInformation("Get client begin.");
 

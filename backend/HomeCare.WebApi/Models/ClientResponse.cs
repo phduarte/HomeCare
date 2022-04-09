@@ -7,6 +7,7 @@ namespace HomeCare.WebApi.Models
         public string Name { get; set; }
         public Guid ClientId { get; set; }
         public string Username { get; set; }
+        public string Email { get; set; }
 
         public static ClientResponse Parse(Client client)
         {
@@ -15,6 +16,7 @@ namespace HomeCare.WebApi.Models
                 ClientId = client.Id,
                 Username = client.Username,
                 Name = client.Name,
+                Email = client.Email,
             };
         }
     }

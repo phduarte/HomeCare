@@ -10,15 +10,22 @@ namespace HomeCare.Domain.Contracts
 
         public Client Client { get; private set; }
         public Supplier Supplier { get; private set; }
-        public DateTime ServiceDate { get; private set; }
+        public string JobDescription { get; set; }
+        public DateTime ExecutionDate { get; private set; }
         public Money Price { get; private set; }
         public ContractStatus Status { get; private set; } = ContractStatus.Sketch;
         public bool IsPending => _pendingSpecification.IsSatisfied(this);
         public bool CanBeRefund => _refundSpecification.IsSatisfied(this);
 
+
         public void Emmit()
         {
             Status = ContractStatus.Emmited;
+        }
+
+        public void Done()
+        {
+            Status = ContractStatus.Done;
         }
 
         public void Finish()
@@ -26,7 +33,7 @@ namespace HomeCare.Domain.Contracts
             Status = ContractStatus.Finished;
         }
 
-        public static Contract Create(Client client, Supplier supplier, Money price, DateTime serviceDate)
+        public static Contract Create(Client client, Supplier supplier, Money price, string jobDescription, DateTime executionDate)
         {
             return new Contract
             {
@@ -34,7 +41,8 @@ namespace HomeCare.Domain.Contracts
                 Client = client,
                 Supplier = supplier,
                 Price = price,
-                ServiceDate = serviceDate
+                JobDescription = jobDescription,
+                ExecutionDate = executionDate
             };
         }
     }

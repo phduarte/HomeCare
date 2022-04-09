@@ -10,12 +10,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // 
-builder.Services.AddHomeCare();
+builder.Services.AddHomeCare(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Configuration.GetValue<bool>("UseSwagger"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();

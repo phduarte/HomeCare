@@ -4,7 +4,7 @@ using HomeCare.Domain.Payments;
 namespace HomeCare.Controllers
 {
     [ApiController]
-    [Route("api/v1/public/payment")]
+    [Route("v1/public/payment")]
     public class PaymentsController : ControllerBase
     {
         private readonly ILogger<PaymentsController> _logger;
@@ -16,17 +16,18 @@ namespace HomeCare.Controllers
             _paymentService = paymentService;
         }
 
-        [HttpPost("pay")]
+        [HttpPost("request")]
         [ProducesDefaultResponseType(typeof(PaymentReceipt))]
-        public IActionResult Pay(Payment request)
+        public IActionResult Request(Payment request)
         {
             try
             {
-                var receipt = _paymentService.Pay(request);
+                var receipt = _paymentService.Request(request);
                 return Ok(receipt);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Failed while trying to request payment.");
                 return BadRequest(ex);
             }
         }
@@ -40,8 +41,9 @@ namespace HomeCare.Controllers
                 var receipt = _paymentService.Refund(request);
                 return Ok(receipt);
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex, "Failed while trying to refund payment.");
                 return BadRequest();
             }
         }
@@ -55,8 +57,9 @@ namespace HomeCare.Controllers
                 _paymentService.Complete(request);
                 return Ok(request);
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex, "Failed while trying to complete payment.");
                 return BadRequest();
             }
         }

@@ -30,16 +30,17 @@ namespace HomeCare.Domain.Contracts
         {
             var client = _clientService.GetById(contractSketch.ClientId);
             var supplier = _supplierService.GetById(contractSketch.SupplierId);
-            var contract = Contract.Create(client, supplier, supplier.Price, contractSketch.ServiceDate);
+            var contract = Contract.Create(client, supplier, supplier.Price, contractSketch.JobDescription, contractSketch.Date);
 
             contract.Emmit();
 
             var payment = new Payment
             {
-                Description = string.Empty,
+                Description = $"{client} pays {supplier} for {contract.JobDescription}",
                 Id = Guid.NewGuid(),
                 Status = PaymentStatus.Requested,
-                Value = contract.Price
+                Value = contract.Price,
+                Contract = contract
             };
 
             _contractsRepository.Create(contract);
@@ -49,12 +50,18 @@ namespace HomeCare.Domain.Contracts
             return contract;
         }
 
-        public void Finish(Contract contract)
+        public void Done(Contract contract)
         {
-            contract.Finish();
+            contract.Done();
 
             _contractsRepository.Update(contract);
             _notificationFacade.Notify(contract);
+        }
+
+        public void Finish(Contract contract)
+        {
+            contract.Finish();
+            _contractsRepository.Update(contract);
         }
     }
 }

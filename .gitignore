@@ -1,2 +1,3 @@
 ﻿.vs
-/backend/HomeCare.Common/obj/*
+obj/
+bin/

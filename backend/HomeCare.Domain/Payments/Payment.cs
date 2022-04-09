@@ -1,4 +1,6 @@
-﻿namespace HomeCare.Domain.Payments
+﻿using HomeCare.Domain.Contracts;
+
+namespace HomeCare.Domain.Payments
 {
     public class Payment : Entity<Guid>, IAggregateRoot
     {
@@ -8,7 +10,8 @@
         public PaymentReceipt? Receipt { get; set; }
         public PaymentStatus Status { get; set; } = PaymentStatus.Created;
         public PaymentEvent LastEvent => Events.LastOrDefault();
-
+        public Contract Contract { get; set; }
+        
         public Payment()
         {
             Events.Add(new PaymentEvent

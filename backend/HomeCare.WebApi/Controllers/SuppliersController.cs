@@ -5,7 +5,7 @@ using HomeCare.Models;
 namespace HomeCare.Controllers
 {
     [ApiController]
-    [Route("api/v1/public/suppliers")]
+    [Route("v1/public/suppliers")]
     public class SuppliersController : ControllerBase
     {
         private readonly ILogger<SuppliersController> _logger;

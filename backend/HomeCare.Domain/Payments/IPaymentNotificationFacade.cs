@@ -2,6 +2,6 @@
 {
     public interface IPaymentNotificationFacade
     {
-        void Notify(PaymentEvent payment);
+        void Notify(Payment payment);
     }
 }

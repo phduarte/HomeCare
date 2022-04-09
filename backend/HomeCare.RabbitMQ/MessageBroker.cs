@@ -8,12 +8,13 @@ namespace HomeCare.RabbitMQ
     public class MessageBroker<T> : IMessageBroker<T>
     {
         private readonly string _queueName;
-        private readonly string _uri = "amqps://nnbhglxk:OyPflRd0OVBDL6w5XuXz-bLMTYqIZNlH@jackal.rmq.cloudamqp.com/nnbhglxk";
+        private readonly string _uri;
 
         public event MessageReceivedEventHandler<T> MessageReceived;
 
-        public MessageBroker(string queueName)
+        public MessageBroker(string uri, string queueName)
         {
+            _uri = uri;
             _queueName = queueName;
 
             Setup();

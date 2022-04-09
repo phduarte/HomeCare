@@ -1,4 +1,6 @@
-﻿namespace HomeCare.Domain.Clients
+﻿using System;
+
+namespace HomeCare.Domain.Clients
 {
     public interface IClientRepository : IRepository<Client>
     {

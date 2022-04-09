@@ -1,19 +1,20 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using HomeCare.Data;
+using HomeCare.Data.InMemory;
 using HomeCare.Domain;
 using HomeCare.PayPal;
 using HomeCare.RabbitMQ;
 using HomeCare.SendGrid;
+using Microsoft.Extensions.Configuration;
 
 namespace HomeCare.IoC
 {
     public static class DependencyInjectionExtensions
     {
-        public static IServiceCollection AddHomeCare(this IServiceCollection services)
+        public static IServiceCollection AddHomeCare(this IServiceCollection services, IConfiguration configuration)
         {
             return services.AddData()
-                .AddSendGrid()
-                .AddRabbitMq()
+                .AddSendGrid(configuration)
+                .AddRabbitMq(configuration)
                 .AddPayPal()
                 .AddDomain();
         }

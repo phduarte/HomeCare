@@ -4,6 +4,7 @@
     {
         Sketch = 0,
         Emmited = 1,
-        Finished = 2
+        Done = 2,
+        Finished = 3
     }
 }

@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Contracts;
 
-namespace HomeCare.Data
+namespace HomeCare.Data.InMemory
 {
     internal class ContractsRepository : IContractsRepository
     {
@@ -13,10 +13,7 @@ namespace HomeCare.Data
 
         public void Update(Contract contract)
         {
-            var r = _contracts.FirstOrDefault(x => x.Equals(contract));
-
-            if (r == null)
-                throw new ContractNotFoundException(contract);
+            var r = _contracts.FirstOrDefault(x => x.Equals(contract)) ?? throw new ContractNotFoundException(contract);
 
             _contracts.Remove(r);
             _contracts.Add(contract);

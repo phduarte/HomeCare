@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Clients;
 
-namespace HomeCare.Data
+namespace HomeCare.Data.InMemory
 {
     public class ClientsRepository : IClientRepository
     {

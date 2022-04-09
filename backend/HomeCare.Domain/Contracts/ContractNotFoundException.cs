@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Contracts;
+﻿using System;
 
 namespace HomeCare.Domain.Contracts
 {

@@ -5,7 +5,7 @@ using HomeCare.Models;
 namespace HomeCare.Controllers
 {
     [ApiController]
-    [Route("api/v1/public/hire")]
+    [Route("v1/public/contract")]
     public class ContractController : ControllerBase
     {
         private readonly ILogger<ContractController> _logger;
@@ -50,7 +50,7 @@ namespace HomeCare.Controllers
                 if (ModelState.IsValid)
                 {
                     var contract = request.ToModel();
-                    _contractService.Finish(contract);
+                    _contractService.Done(contract);
 
                     return Ok(ContractFinishedResponse.Parse(contract));
                 }

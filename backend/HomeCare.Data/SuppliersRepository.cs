@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Suppliers;
 
-namespace HomeCare.Data
+namespace HomeCare.Data.InMemory
 {
     public class SuppliersRepository : ISuppliersRepository
     {

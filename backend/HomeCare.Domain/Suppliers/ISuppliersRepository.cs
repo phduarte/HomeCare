@@ -1,4 +1,7 @@
-﻿namespace HomeCare.Domain.Suppliers
+﻿using System;
+using System.Linq;
+
+namespace HomeCare.Domain.Suppliers
 {
     public interface ISuppliersRepository : IRepository<Supplier>
     {

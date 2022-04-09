@@ -6,7 +6,7 @@ namespace HomeCare.Models
     {
         public Guid ContractId { get; set; }
 
-        internal Contract ToModel()
+        public Contract ToModel()
         {
             return new Contract
             {

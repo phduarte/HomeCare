@@ -1,6 +1,6 @@
 ﻿using HomeCare.Domain.Payments;
 
-namespace HomeCare.Data
+namespace HomeCare.Data.InMemory
 {
     public class PaymentsRepository : IPaymentsRepository
     {

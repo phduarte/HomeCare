@@ -3,9 +3,8 @@ using HomeCare.Domain.Clients;
 using HomeCare.Domain.Contracts;
 using HomeCare.Domain.Payments;
 using HomeCare.Domain.Suppliers;
-using HomeCare.Data;
 
-namespace HomeCare.Data
+namespace HomeCare.Data.InMemory
 {
     public static class DependencyInjectionExtensions
     {

@@ -18,7 +18,7 @@
             _notificationFacade = notificationFacade;
         }
 
-        public PaymentReceipt Pay(Payment payment)
+        public PaymentReceipt Request(Payment payment)
         {
             var request = RequestForPayment.CreateDebitFor(payment);
 
@@ -57,7 +57,7 @@
                 _paymentsRepository.Create(payment);
             }
 
-            _notificationFacade.Notify(payment.LastEvent);
+            _notificationFacade.Notify(payment);
         }
     }
 }

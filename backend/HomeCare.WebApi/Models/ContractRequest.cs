@@ -7,14 +7,16 @@ namespace HomeCare.Models
         public Guid SupplierId { get; set; }
         public Guid ClientId { get; set; }
         public DateTime ServiceDate { get; set; }
+        public string JobDescription { get; set; }
 
         public ContractSketch ToModel()
         {
             return new ContractSketch
             {
                 ClientId = ClientId,
-                ServiceDate = ServiceDate,
-                SupplierId = SupplierId
+                Date = ServiceDate,
+                SupplierId = SupplierId,
+                JobDescription = JobDescription,
             };
         }
     }
