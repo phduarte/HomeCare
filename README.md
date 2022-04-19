@@ -147,13 +147,13 @@ Contém o detalhamento das especificações do sistema.
 
 Esses são todos os casos de uso identificados através da análise dos requisitos.
 
-![projeto_integrado-Caso de Uso.drawio.png](/caso-uso.png)
+![projeto_integrado-Caso de Uso.drawio.png](/doc/caso-uso.png)
 
 ## Sequência caso de uso UC03 - Pagar Serviço
 
 Este foi o caso de uso mais crítido, por incluir validações de regras de negócio, integração com parceiros e persistência de dados. O que torna a visão de diagrama de sequência útil para a análise do comportamento e suas transições entre componentes.
 
-![projeto_integrado-Sequence.drawio (1).png](/sequencia.png)
+![projeto_integrado-Sequence.drawio (1).png](/doc/sequencia.png)
 
 # Arquitetura
 
@@ -161,7 +161,7 @@ Este foi o caso de uso mais crítido, por incluir validações de regras de neg�
 
 O uso de uma arquitetura baseada em eventos é importante para garantir a consistência das informações. Lidando com informações de transações bancárias realizadas por um parceiro, isso garante que eventuais problemas de rede não afete a confiabilidade do aplicativo, tão pouco, gere risco financeiro.
 
-![projeto_integrado-DAS.drawio.png](/desenho-arquitetura.png)
+![projeto_integrado-DAS.drawio.png](/doc/desenho-arquitetura.png)
 
 ## Referência
 
@@ -211,7 +211,7 @@ Fizemos uma avaliação no formato de matriz com critérios e ponderações base
 - 2 - Importante, se tiver será um diferencial.
 - 3 - Crítico, é obrigatório ter.
 
-![image.png](/adr.png)
+![image.png](/doc/adr.png)
 
 ## Mensageria
 
