@@ -8,6 +8,7 @@ namespace HomeCare.Models
         public Guid ClientId { get; set; }
         public DateTime ServiceDate { get; set; }
         public string JobDescription { get; set; }
+        public decimal Value { get; set; }
 
         public ContractSketch ToModel()
         {

@@ -11,9 +11,14 @@ namespace HomeCare.Data.InMemory
             _contracts.Add(contract);
         }
 
+        public Contract GetById(Guid guid)
+        {
+            return _contracts.FirstOrDefault(x => guid.Equals(x.Id));
+        }
+
         public void Update(Contract contract)
         {
-            var r = _contracts.FirstOrDefault(x => x.Equals(contract)) ?? throw new ContractNotFoundException(contract);
+            var r = _contracts.FirstOrDefault(x => x.Equals(contract)) ?? throw new ContractNotFoundException(contract.Id);
 
             _contracts.Remove(r);
             _contracts.Add(contract);

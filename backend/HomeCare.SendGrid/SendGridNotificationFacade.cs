@@ -8,18 +8,15 @@ namespace HomeCare.SendGrid
     public class SendGridNotificationFacade : IPaymentNotificationFacade, IContractFinishedNotificationFacade
     {
         private readonly SendGridClient _sendGridClient;
-        private EmailAddress from => new EmailAddress("no-reply@homecare.com", "Plataforma");
+        private EmailAddress from => new EmailAddress("phduarte87@outlook.com", "Plataforma");
 
         public SendGridNotificationFacade(SendGridClient sendGridClient)
         {
-            //SendGridOptions options
-            //_sendGridClient = new SendGridClient(options.ApiKey);
             _sendGridClient = sendGridClient;
         }
 
         public void Notify(Payment payment)
         {
-            //Thread.Sleep(10000);
             var client = payment.Contract.Client;
             var to = new EmailAddress(client.Email, client.Name);
             var plainTextContent = "O prestador informou que o serviço já foi concluído. Agora é hora de liberar o dinheiro.";

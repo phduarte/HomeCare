@@ -68,7 +68,7 @@ namespace HomeCare.Domain.Contracts
 
             var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
 
-            _contractService.Done(contract);
+            _contractService.Done(contract.Id);
 
             Assert.AreEqual(ContractStatus.Done, contract.Status);
         }
@@ -85,9 +85,9 @@ namespace HomeCare.Domain.Contracts
 
             _contractsRepository
                 .Setup(s => s.Update(contract))
-                .Throws(new ContractNotFoundException(contract));
+                .Throws(new ContractNotFoundException(contract.Id));
 
-            Assert.Throws<ContractNotFoundException>(() => _contractService.Done(contract));
+            Assert.Throws<ContractNotFoundException>(() => _contractService.Done(contract.Id));
 
             _notificationFacade
                 .Verify(s => s.Notify(contract), Times.Never);
@@ -104,7 +104,7 @@ namespace HomeCare.Domain.Contracts
 
             var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
 
-            _contractService.Finish(contract);
+            _contractService.Finish(contract.Id);
 
             Assert.AreEqual(ContractStatus.Finished, contract.Status);
         }
@@ -120,7 +120,7 @@ namespace HomeCare.Domain.Contracts
 
             var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
 
-            _contractService.Cancel(contract);
+            _contractService.Cancel(contract.Id);
 
             Assert.AreEqual(ContractStatus.Finished, contract.Status);
         }

@@ -4,7 +4,7 @@
     {
         public bool IsSatisfied(Contract contract)
         {
-            return contract.Status == ContractStatus.Emitted && contract.ExecutionDate > DateTime.Today.AddDays(1);
+            return contract.Status == ContractStatus.Emitted && contract.ExecutionDate < DateTime.Today.AddDays(1);
         }
     }
 }

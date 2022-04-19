@@ -46,26 +46,64 @@ namespace HomeCare.Domain.Contracts
             return contract;
         }
 
-        public void Done(Contract contract)
+        public void Done(Guid guid)
         {
-            contract.Done();
+            var contract = _contractsRepository.GetById(guid);
+            if (contract != null)
+            {
+                contract.Done();
 
-            _contractsRepository.Update(contract);
-            _notificationFacade.Notify(contract);
+                _contractsRepository.Update(contract);
+                _notificationFacade.Notify(contract);
+            }
+            else
+            {
+                throw new ContractNotFoundException(guid);
+            }
         }
 
-        public void Finish(Contract contract)
+        public void Finish(Guid guid)
         {
-            contract.Finish();
-            _contractsRepository.Update(contract);
+            var contract = _contractsRepository.GetById(guid);
+
+            if (contract != null)
+            {
+                contract.Finish();
+                _contractsRepository.Update(contract);
+            }
+            else
+            {
+                throw new ContractNotFoundException(guid);
+            }
         }
 
-        public void Cancel(Contract contract)
+        public void Cancel(Guid guid)
         {
-            contract.Cancel();
+            var contract = _contractsRepository.GetById(guid);
 
-            _contractsRepository.Update(contract);
-            _notificationFacade.Notify(contract);
+            if (contract != null)
+            {
+                contract.Cancel();
+
+                _contractsRepository.Update(contract);
+                _notificationFacade.Notify(contract);
+            }
+            else
+            {
+                throw new ContractNotFoundException(guid);
+            }
+        }
+
+        public Contract GetById(Guid guid)
+        {
+            var contract = _contractsRepository.GetById(guid);
+
+            if (contract != null)
+            {
+                return contract;
+            }
+
+            throw new ContractNotFoundException(guid);
         }
     }
 }

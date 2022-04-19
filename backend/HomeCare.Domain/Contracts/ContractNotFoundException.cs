@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace HomeCare.Domain.Contracts
+﻿namespace HomeCare.Domain.Contracts
 {
     [Serializable]
     public class ContractNotFoundException : Exception
     {
-        public Contract Contract { get; }
+        public Guid ContractId { get; }
 
-        public ContractNotFoundException(Contract contract)
+        public ContractNotFoundException(Guid guid)
         {
-            Contract = contract;
+            ContractId = guid;
         }
     }
 }

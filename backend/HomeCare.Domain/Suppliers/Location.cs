@@ -1,4 +1,5 @@
 ﻿using HomeCare.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeCare.Domain.Suppliers
 {
@@ -16,9 +17,13 @@ namespace HomeCare.Domain.Suppliers
         /// 
         /// </summary>
         public long Range { get; set; }
+        [NotMapped]
         public long X1 => Latitude - Range;
+        [NotMapped]
         public long X2 => Latitude + Range;
+        [NotMapped]
         public long Y1 => Longitude - Range;
+        [NotMapped]
         public long Y2 => Longitude + Range;
 
         public bool Near(Location location)

@@ -19,7 +19,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 2,
                     Range = 1
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -34,7 +34,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 5,
                     Range = 5
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -49,7 +49,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 9,
                     Range = 3
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -64,7 +64,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 14,
                     Range = 2
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -79,7 +79,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 5,
                     Range = 5
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -94,7 +94,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 6,
                     Range = 10
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -109,7 +109,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 1,
                     Range = 5
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             },
             new Supplier
             {
@@ -124,7 +124,7 @@ namespace HomeCare.Data.InMemory
                     Longitude = 3,
                     Range = 10
                 },
-                Email="phduarte87@outlook.com"
+                Email="paulohincdig@gmail.com"
             }
         };
 

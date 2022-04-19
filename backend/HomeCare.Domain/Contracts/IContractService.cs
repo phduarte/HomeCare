@@ -3,8 +3,9 @@
     public interface IContractService
     {
         Contract Emit(ContractSketch contract);
-        void Finish(Contract contract);
-        void Done(Contract contract);
-        void Cancel(Contract contract);
+        Contract GetById(Guid guid);
+        void Finish(Guid guid);
+        void Done(Guid guid);
+        void Cancel(Guid guid);
     }
 }
