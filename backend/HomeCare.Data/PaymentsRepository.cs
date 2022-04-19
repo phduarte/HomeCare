@@ -11,9 +11,16 @@ namespace HomeCare.Data.InMemory
             _payments.Add(payment);
         }
 
-        public bool Exists(Payment payment)
+        public bool TryGetById(Guid id, out Payment payment)
         {
-            return _payments.Contains(payment);
+            payment = GetById(id);
+
+            return payment is not null;
+        }
+
+        public Payment GetById(Guid id)
+        {
+            return _payments.FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(Payment payment)

@@ -2,7 +2,7 @@
 
 namespace HomeCare.Models
 {
-    public class ContractRequest
+    public class ContractEmitRequest
     {
         public Guid SupplierId { get; set; }
         public Guid ClientId { get; set; }

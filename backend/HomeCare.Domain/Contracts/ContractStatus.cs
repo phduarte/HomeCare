@@ -3,8 +3,9 @@
     public enum ContractStatus
     {
         Sketch = 0,
-        Emmited = 1,
+        Emitted = 1,
         Done = 2,
-        Finished = 3
+        Finished = 3,
+        Canceled = 4
     }
 }

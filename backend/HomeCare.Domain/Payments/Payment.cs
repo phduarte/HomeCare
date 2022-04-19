@@ -4,24 +4,39 @@ namespace HomeCare.Domain.Payments
 {
     public class Payment : Entity<Guid>, IAggregateRoot
     {
-        public string Description { get; set; }
-        public IList<PaymentEvent> Events { get; set; } = new List<PaymentEvent>();
-        public Money Value { get; set; }
-        public PaymentReceipt? Receipt { get; set; }
-        public PaymentStatus Status { get; set; } = PaymentStatus.Created;
+        public string Description { get; private set; }
+        public IList<PaymentEvent> Events { get; private set; } = new List<PaymentEvent>();
+        public Money Value { get; private set; }
+        public PaymentReceipt? Receipt { get; private set; }
+        public PaymentStatus Status { get; private set; }
         public PaymentEvent LastEvent => Events.LastOrDefault();
-        public Contract Contract { get; set; }
-        
-        public Payment()
+        public Contract Contract { get; private set; }
+
+        public Payment(Guid guid, Contract contract, string description, PaymentStatus status, Money value)
         {
-            Events.Add(new PaymentEvent
-            {
-                Id = Guid.NewGuid(),
-                CreatedAt = DateTime.Now,
-                CreatedBy = "paulo",
-                //Payment = this,
-                Status = PaymentStatus.Created
-            });
+            Id = guid;
+            Contract = contract;
+            Description = description;
+            Status = status;
+            Value = value;
+            AddEvent(Status = status);
+        }
+
+        public void Pay(PaymentReceipt receipt)
+        {
+            Receipt = receipt;
+            AddEvent(Status = PaymentStatus.Requested);
+        }
+
+        public void Reverse(PaymentReceipt receipt)
+        {
+            Receipt = receipt;
+            AddEvent(Status = PaymentStatus.Rejected);
+        }
+
+        public void Confirm()
+        {
+            AddEvent(Status = PaymentStatus.Confirmed);
         }
 
         public override string ToString()
@@ -29,33 +44,14 @@ namespace HomeCare.Domain.Payments
             return $"{Value} - {Status}";
         }
 
-        public void Paid(PaymentReceipt receipt)
+        private void AddEvent(PaymentStatus status)
         {
-            Status = PaymentStatus.Confirmed;
-            Receipt = receipt;
-
             Events.Add(new PaymentEvent
             {
                 Id = Guid.NewGuid(),
-                Status = PaymentStatus.Confirmed,
+                Status = status,
                 CreatedAt = DateTime.UtcNow,
-                CreatedBy = "paulo",
-                //Payment = this
-            });
-        }
-
-        public void Reversed(PaymentReceipt receipt)
-        {
-            Status = PaymentStatus.Rejected;
-            Receipt = receipt;
-
-            Events.Add(new PaymentEvent
-            {
-                Id = Guid.NewGuid(),
-                Status = PaymentStatus.Rejected,
-                CreatedAt = DateTime.UtcNow,
-                CreatedBy = "paulo",
-                //Payment = this
+                CreatedBy = "paulo"
             });
         }
     }

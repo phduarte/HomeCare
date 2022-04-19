@@ -13,8 +13,8 @@ namespace HomeCare.RabbitMQ
 
         public void Publish(Payment payment)
         {
-            var messageBroker = new MessageBroker<Payment>(_options.Uri, _options.RequestedQueueName);
-            messageBroker.Publish(payment);
+            var messageBroker = new MessageBroker(_options.Uri, _options.RequestedQueueName);
+            messageBroker.Publish(payment.Id);
         }
     }
 }

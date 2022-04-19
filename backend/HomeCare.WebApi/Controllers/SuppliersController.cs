@@ -19,16 +19,16 @@ namespace HomeCare.Controllers
         }
 
         [HttpGet("search")]
-        [ProducesDefaultResponseType(typeof(SearchResponse[]))]
-        public IActionResult Search([FromQuery] SearchRequest request)
+        [ProducesDefaultResponseType(typeof(SupplierSearchResponse[]))]
+        public IActionResult Search([FromQuery] SupplierSearchRequest request)
         {
             _logger.LogInformation("Find supplier begin");
 
             try
             {
-                var criteria = SearchRequest.Parse(request);
+                var criteria = SupplierSearchRequest.Parse(request);
                 var suppliers = _supplierService.Search(criteria);
-                var response = suppliers.Select(s => SearchResponse.Map(s));
+                var response = suppliers.Select(s => SupplierSearchResponse.Map(s));
 
                 return Ok(response);
             }

@@ -2,7 +2,7 @@
 
 namespace HomeCare.Models
 {
-    public class SearchResponse
+    public class SupplierSearchResponse
     {
         public Guid SupplierId { get; private set; }
         public string Name { get; private set; }
@@ -13,9 +13,9 @@ namespace HomeCare.Models
         public long Longitude { get; set; }
         public long Range { get; set; }
 
-        public static SearchResponse Map(Supplier supplier)
+        public static SupplierSearchResponse Map(Supplier supplier)
         {
-            return new SearchResponse
+            return new SupplierSearchResponse
             {
                 SupplierId = supplier.Id,
                 Name = supplier.Name,

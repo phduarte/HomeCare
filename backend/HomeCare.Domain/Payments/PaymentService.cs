@@ -21,23 +21,22 @@
         public PaymentReceipt Request(Payment payment)
         {
             var request = RequestForPayment.CreateDebitFor(payment);
-
             var receipt = _paymentGateway.Proccess(request);
 
-            payment.Paid(receipt);
+            payment.Pay(receipt);
 
             _paymentsProcessedQueue.Publish(payment);
 
             return receipt;
         }
 
-        public PaymentReceipt Refund(Payment payment)
+        public PaymentReceipt Refund(Guid id)
         {
+            var payment = _paymentsRepository.GetById(id) ?? throw new PaymentNotFoundException(id);
             var request = RequestForPayment.CreateCreditFor(payment);
-
             var receipt = _paymentGateway.Proccess(request);
 
-            payment.Reversed(receipt);
+            payment.Reverse(receipt);
 
             _paymentsProcessedQueue.Publish(payment);
 
@@ -50,12 +49,10 @@
         /// por isso pagamentos só é salvo no banco depois que a integração externa é concluída, porém, o worker rebate nesse mesmo microserviço para que ele complete o pagamento e notifique o cliente.
         /// </summary>
         /// <param name="payment"></param>
-        public void Complete(Payment payment)
+        public void Complete(Guid id)
         {
-            if (!_paymentsRepository.Exists(payment))
-            {
-                _paymentsRepository.Create(payment);
-            }
+            var payment = _paymentsRepository.GetById(id) ?? throw new PaymentNotFoundException(id);
+            payment.Confirm();
 
             _notificationFacade.Notify(payment);
         }

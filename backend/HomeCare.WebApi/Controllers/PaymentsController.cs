@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HomeCare.Domain.Payments;
+using HomeCare.Models;
+using HomeCare.WebApi.Models;
 
 namespace HomeCare.Controllers
 {
@@ -17,49 +19,52 @@ namespace HomeCare.Controllers
         }
 
         [HttpPost("request")]
-        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
-        public IActionResult Request(Payment request)
+        [ProducesDefaultResponseType(typeof(PaymentResponse))]
+        public IActionResult RequestPayment(PaymentRequest request)
         {
             try
             {
-                var receipt = _paymentService.Request(request);
+                var model = request.ToModel();
+                var receipt = _paymentService.Request(model);
                 return Ok(receipt);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed while trying to request payment.");
+                _logger.LogError(ex, "Failed to request payment.");
                 return BadRequest(ex);
             }
         }
 
         [HttpPost("refund")]
-        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
-        public IActionResult Refund(Payment request)
+        [ProducesDefaultResponseType(typeof(PaymentRefundResponse))]
+        public IActionResult Refund(PaymentRefundRequest request)
         {
             try
             {
-                var receipt = _paymentService.Refund(request);
+                var receipt = _paymentService.Refund(request.Id);
+                var response = PaymentRefundResponse.Parse(receipt);
                 return Ok(receipt);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed while trying to refund payment.");
+                _logger.LogError(ex, "Failed to refund payment.");
                 return BadRequest();
             }
         }
 
         [HttpPost("complete")]
-        [ProducesDefaultResponseType(typeof(PaymentReceipt))]
-        public IActionResult Complete(Payment request)
+        [ProducesDefaultResponseType(typeof(PaymentConfirmResponse))]
+        public IActionResult Complete(Guid id)
         {
             try
             {
-                _paymentService.Complete(request);
-                return Ok(request);
+                _paymentService.Complete(id);
+                var response = PaymentConfirmResponse.Parse(id);
+                return Ok(response);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed while trying to complete payment.");
+                _logger.LogError(ex, "Failed to complete payment.");
                 return BadRequest();
             }
         }

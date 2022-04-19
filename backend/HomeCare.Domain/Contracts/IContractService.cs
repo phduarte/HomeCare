@@ -2,8 +2,9 @@
 {
     public interface IContractService
     {
-        Contract Emmit(ContractSketch contract);
+        Contract Emit(ContractSketch contract);
         void Finish(Contract contract);
         void Done(Contract contract);
+        void Cancel(Contract contract);
     }
 }

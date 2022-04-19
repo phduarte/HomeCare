@@ -11,12 +11,26 @@
 
         public Client GetById(Guid clientId)
         {
-            return _clientsRepository.GetById(clientId);
+            try
+            {
+                return _clientsRepository.GetById(clientId);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public Client GetByUsername(string username)
         {
-            return _clientsRepository.GetByUserName(username);
+            try
+            {
+                return _clientsRepository.GetByUserName(username);
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HomeCare.Models
 {
-    public class SearchRequest
+    public class SupplierSearchRequest
     {
         [DisplayName("Latitude (KM)")]
         public long Latitude { get; set; }
@@ -15,7 +15,7 @@ namespace HomeCare.Models
         public string? OrderBy { get; set; }
         public string? ServiceName { get; set; }
 
-        public static SearchCriteria Parse(SearchRequest request)
+        public static SearchCriteria Parse(SupplierSearchRequest request)
         {
             var type = GetSearchType(request.OrderBy);
 

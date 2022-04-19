@@ -10,9 +10,11 @@ namespace HomeCare.SendGrid
         private readonly SendGridClient _sendGridClient;
         private EmailAddress from => new EmailAddress("no-reply@homecare.com", "Plataforma");
 
-        public SendGridNotificationFacade(SendGridOptions options)
+        public SendGridNotificationFacade(SendGridClient sendGridClient)
         {
-            _sendGridClient = new SendGridClient(options.ApiKey);
+            //SendGridOptions options
+            //_sendGridClient = new SendGridClient(options.ApiKey);
+            _sendGridClient = sendGridClient;
         }
 
         public void Notify(Payment payment)

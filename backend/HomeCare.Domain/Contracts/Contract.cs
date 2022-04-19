@@ -5,32 +5,61 @@ namespace HomeCare.Domain.Contracts
 {
     public class Contract : Entity<Guid>, IAggregateRoot
     {
-        private RefundSpecification _refundSpecification = new RefundSpecification();
-        private PendingSpecification _pendingSpecification = new PendingSpecification();
+        private CancelSpecification _cancelledSpecification = new();
+        private PendingSpecification _pendingSpecification = new();
+        private EmitSpecification _emitSpecification = new();
 
         public Client Client { get; private set; }
         public Supplier Supplier { get; private set; }
-        public string JobDescription { get; set; }
+        public string JobDescription { get; private set; }
         public DateTime ExecutionDate { get; private set; }
+        public DateTime UpdateAt { get; private set; }
         public Money Price { get; private set; }
         public ContractStatus Status { get; private set; } = ContractStatus.Sketch;
         public bool IsPending => _pendingSpecification.IsSatisfied(this);
-        public bool CanBeRefund => _refundSpecification.IsSatisfied(this);
+        public bool CanBeCancelled => _cancelledSpecification.IsSatisfied(this);
+        public bool CanBeEmitted => _emitSpecification.IsSatisfied(this);
 
-
-        public void Emmit()
+        public void Emit()
         {
-            Status = ContractStatus.Emmited;
+            if (CanBeEmitted)
+            {
+                UpdateStatus(ContractStatus.Emitted);
+            }
         }
 
         public void Done()
         {
-            Status = ContractStatus.Done;
+            if (!IsPending)
+            {
+                throw new ContractIsNotPendingException();
+            }
+
+            UpdateStatus(ContractStatus.Done);
         }
 
         public void Finish()
         {
-            Status = ContractStatus.Finished;
+            if (!IsPending)
+            {
+                throw new ContractIsNotPendingException();
+            }
+
+            UpdateStatus(ContractStatus.Finished);
+        }
+
+        public void Cancel()
+        {
+            if (CanBeCancelled)
+            {
+                UpdateStatus(ContractStatus.Canceled);
+            }
+        }
+
+        private void UpdateStatus(ContractStatus contractStatus)
+        {
+            Status = contractStatus;
+            UpdateAt = DateTime.UtcNow;
         }
 
         public static Contract Create(Client client, Supplier supplier, Money price, string jobDescription, DateTime executionDate)

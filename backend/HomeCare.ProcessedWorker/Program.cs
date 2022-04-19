@@ -1,23 +1,10 @@
-﻿using HomeCare.Domain.Payments;
-using HomeCare.RabbitMQ;
-using System.Net.Http.Json;
+﻿using HomeCare.IoC;
 
-Console.WriteLine("Worker de pagamentos processados");
+var builder = WebApplication.CreateBuilder(args);
 
-// 
-var uri = "amqps://nnbhglxk:OyPflRd0OVBDL6w5XuXz-bLMTYqIZNlH@jackal.rmq.cloudamqp.com/nnbhglxk";
-var messageBroker = new MessageBroker<Payment>(uri, "payments_processed");
-var client = new HttpClient();
+builder.Services.AddHostedService<HomeCare.ProcessedWorker.SendMessageBackgroundService>();
+builder.Services.AddHomeCare(builder.Configuration);
 
-Console.WriteLine($"{DateTime.Now} - RequestedWorker started.");
+var app = builder.Build();
 
-messageBroker.StartConsume((p) =>
-{
-    var result = client.PostAsJsonAsync("https://localhost:7258/api/v1/public/payment/complete", p).Result;
-    result.EnsureSuccessStatusCode();
-
-    Console.WriteLine($"{DateTime.Now} - Payment {p.Id} completed. {result}");
-});
-
-Console.WriteLine($"{DateTime.Now} - RequestedWorker finished.");
-Console.ReadLine();
+app.Run();

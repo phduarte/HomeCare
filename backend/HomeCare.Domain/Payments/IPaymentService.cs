@@ -2,8 +2,8 @@
 {
     public interface IPaymentService
     {
-        PaymentReceipt Request(Payment payment);
-        PaymentReceipt Refund(Payment payment);
-        void Complete(Payment payment);
+        PaymentReceipt Request(Payment id);
+        PaymentReceipt Refund(Guid id);
+        void Complete(Guid id);
     }
 }

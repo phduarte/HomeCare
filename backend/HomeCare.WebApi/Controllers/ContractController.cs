@@ -18,17 +18,17 @@ namespace HomeCare.Controllers
         }
 
         [HttpPost("emmit")]
-        [ProducesDefaultResponseType(typeof(ContractResponse))]
-        public IActionResult Emmit(ContractRequest request)
+        [ProducesDefaultResponseType(typeof(ContractEmitResponse))]
+        public IActionResult Emmit(ContractEmitRequest request)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
                     var sketch = request.ToModel();
-                    var contract = _contractService.Emmit(sketch);
+                    var contract = _contractService.Emit(sketch);
 
-                    return Ok(ContractResponse.Parse(contract));
+                    return Ok(ContractEmitResponse.Parse(contract));
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace HomeCare.Controllers
         }
 
         [HttpPost("finish")]
-        [ProducesDefaultResponseType(typeof(ContractFinishedResponse))]
+        [ProducesDefaultResponseType(typeof(ContractFinishResponse))]
         public IActionResult Finish(ContractFinishRequest request)
         {
             try
@@ -52,7 +52,7 @@ namespace HomeCare.Controllers
                     var contract = request.ToModel();
                     _contractService.Done(contract);
 
-                    return Ok(ContractFinishedResponse.Parse(contract));
+                    return Ok(ContractFinishResponse.Parse(contract));
                 }
                 else
                 {

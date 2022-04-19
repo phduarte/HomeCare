@@ -1,5 +1,4 @@
-﻿using HomeCare.Domain.Contracts;
-using HomeCare.Domain.Clients;
+﻿using HomeCare.Domain.Clients;
 using HomeCare.Domain.Payments;
 using HomeCare.Domain.Suppliers;
 
@@ -26,22 +25,19 @@ namespace HomeCare.Domain.Contracts
             _paymentRequestQueue = paymentRequestQueue;
         }
 
-        public Contract Emmit(ContractSketch contractSketch)
+        public Contract Emit(ContractSketch contractSketch)
         {
             var client = _clientService.GetById(contractSketch.ClientId);
             var supplier = _supplierService.GetById(contractSketch.SupplierId);
             var contract = Contract.Create(client, supplier, supplier.Price, contractSketch.JobDescription, contractSketch.Date);
 
-            contract.Emmit();
+            contract.Emit();
 
-            var payment = new Payment
-            {
-                Description = $"{client} pays {supplier} for {contract.JobDescription}",
-                Id = Guid.NewGuid(),
-                Status = PaymentStatus.Requested,
-                Value = contract.Price,
-                Contract = contract
-            };
+            var payment = PaymentBuilder.Create()
+                .WithValue(supplier.Price)
+                .WithContract(contract)
+                .WithStatus(PaymentStatus.Created)
+                .Build();
 
             _contractsRepository.Create(contract);
             _paymentRequestQueue.Publish(payment);
@@ -62,6 +58,14 @@ namespace HomeCare.Domain.Contracts
         {
             contract.Finish();
             _contractsRepository.Update(contract);
+        }
+
+        public void Cancel(Contract contract)
+        {
+            contract.Cancel();
+
+            _contractsRepository.Update(contract);
+            _notificationFacade.Notify(contract);
         }
     }
 }

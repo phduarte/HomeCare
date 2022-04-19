@@ -2,13 +2,13 @@
 
 namespace HomeCare.Models
 {
-    public class ContractResponse
+    public class ContractFinishResponse
     {
         public Guid ContractId { get; set; }
 
-        public static ContractResponse Parse(Contract contract)
+        public static ContractFinishResponse Parse(Contract contract)
         {
-            return new ContractResponse
+            return new ContractFinishResponse
             {
                 ContractId = contract.Id
             };
