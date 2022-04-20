@@ -225,6 +225,29 @@ Nessa PoC, optamos por utilizar o RabbitMQ as a Service, o que traz a facilidade
 
 ...
 
+## Projeto Final
+
+### Front End
+
+- [Em breve](https://google.com.br)
+
+### Back End
+
+#### Microserviços
+
+- [clientes](https://app-clients-puc-pi-homecare.azurewebsites.net/swagger)
+- [prestadores](https://app-suppliers-puc-pi-homecare.azurewebsites.net/swagger)
+- [contratos](https://app-contracts-puc-pi-homecare.azurewebsites.net/swagger)
+- [pagamentos](https://app-payments-puc-pi-homecare.azurewebsites.net/swagger)
+
+### Open API
+
+- [clientes](https://app-clients-puc-pi-homecare.azurewebsites.net/swagger/v1/swagger.json)
+
+### Deployment
+
+![image](https://user-images.githubusercontent.com/7060211/164146238-3f37d3a9-4119-468d-8d61-b11effa2194c.png)
+
 ## Referência
 
 - Aula 2 - Análise, Projeto e Avaliação de Arquitetura de Software - Eduardo
