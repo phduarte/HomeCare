@@ -244,14 +244,13 @@ Em React os componentes são definidos como classes ou funções, quando definid
 - Performance:
 A usabilidade e a performance esperadas em um PWA praticamente exigem ser uma single page application (SPA). 
 O React utiliza o virtual DOM para renderizar os componentes, a manipulação do virtual DOM é mais performática do que a manipulação o DOM, quando é feito a alteração do componente, o React cria uma nova árvores com os componentes no virtual DOM, calcula a diferença entre a árvore antiga e nova e atualiza o DOM com apenas as diferenças.
+Por ser uma PWA, o JavaScript será baixado e ficará no Application Cache do navegador. A página precisa estar disponível em poucos segundos, e isso inclui o primeiro acesso. Outro ponto importante é a utilização de componentes conforme necessidade do projeto.
+O react é one-way binding, a transição dos dados entre o DOM e os componentes são somente em uma direção, o estado e as propriedades do componente são copiados para o DOM somente por meio do método render, e os dados do DOM são enviados por meio de eventos. Fazendo com que o desenvolvimento seja mais simples e baseado em funções e facilita o entendimento do código.
+Do ponto de vista de performance, o melhor é atualizar quando for necessário atualizar, como clicando em no botão para submeter o formulário, ao invés de atualizar os atributos no JavaScript todas vez que as tags são alteradas. O React ganha sentido porque ele enfatiza fortemente a atualização do estado dos objetos via eventos. Ele condena o acesso aos componentes explicitamente, e isso torna-o simples, rápido e de fácil entendimento.
 O livro Progressive Web APPs trás a comparação de renderização no navegador entre os principais frameworks front de mercado. O gráfico representa em milissegundo o tempo necessário para renderização no navegador redesenhar a página e o React se destaca nitidamente.
 
 ![desempenho-react.png](/doc/desempenho-react.png)
 Pontes, Guilherme. Progressive Web Apps . Casa do Código. Pesqueisa realizada pelo site auth0.com (PEYROTT, 2016)
-
-Por ser uma PWA, o JavaScript será baixado e ficará no Application Cache do navegador. A página precisa estar disponível em poucos segundos, e isso inclui o primeiro acesso. Outro ponto importante é a utilização de componentes conforme necessidade do projeto.
-O react é one-way binding, a transição dos dados entre o DOM e os componentes são somente em uma direção, o estado e as propriedades do componente são copiados para o DOM somente por meio do método render, e os dados do DOM são enviados por meio de eventos. Fazendo com que o desenvolvimento seja mais simples e baseado em funções e facilita o entendimento do código.
-Do ponto de vista de performance, o melhor é atualizar quando for necessário atualizar, como clicando em no botão para submeter o formulário, ao invés de atualizar os atributos no JavaScript todas vez que as tags são alteradas. O React ganha sentido porque ele enfatiza fortemente a atualização do estado dos objetos via eventos. Ele condena o acesso aos componentes explicitamente, e isso torna-o simples, rápido e de fácil entendimento.
 
 - Documentação:
  A documentação assume o conhecimento prévio sobre programação com a linguagem JavaScript, recomendando uma revisão sobre ela. Ela considera os diferentes conhecimentos e métodos de aprendizado, possuindo seções específicas de tutorial prático ou guia detalhado. A documentação sempre reflete a última versão estável do framework. Para iniciantes que tiverem dificuldades com a documentação, possui um link para um tutorial com os principais conceitos do React. Possui referência para determinadas API específica do React.Possui um glossário com os principais termos da documentação. Possui uma FAQ para perguntas e respostas sobre assuntos comuns. Faz recomendações de cursos e livros.
@@ -284,3 +283,6 @@ Possui o fórum do React que está no GitHub da Meta (facebook) ou o fórum do s
 - Trabalho Final - Arquitetura Java - Fabio Leandro Rodrigues Cordeiro
 - [RabbitMQ o que é e como utilizar](https://blog.cedrotech.com/rabbitmq-o-que-e-e-como-utilizar#:~:text=Dentre%20as%20aplicabilidades%20do%20RabbitMQ,fila%20de%20trabalhos%20em%20background.)
 - [Javascript x CSharp](https://github.com/CharlieDigital/js-ts-csharp)
+- [Documentação React] https://pt-br.reactjs.org/docs/getting-started.html
+- Livro da casa do código: Pontes, Guilherme. Progressive Web Apps . Casa do Código.
+
