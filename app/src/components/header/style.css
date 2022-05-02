@@ -1,0 +1,9 @@
+.navbar {
+    background: white;
+    height: 65px;
+    padding: 0 15px;
+}
+
+.navbar-brand img {
+    max-height: 55px;
+}
