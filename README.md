@@ -234,7 +234,7 @@ Para definição da tecnologia utilizada no front end, seguimos os criterios, or
 - Facilidade de desenvolvimento:
 Possui uma ótima documentação e é um dos frameworks mais utilizados para desenvolvimento front-end, com 186mil estrelas no github, e tem uma comunidade bastante ativa e solicita em fóruns. A configuração inicial é mais simples e rápida, podendo ir adicionando ferramentas JavaScript conforme a aplicação cresce, sendo recomendada inúmeras ferramentas para aplicações grandes, sendo que elas exigem poucas ou nenhuma configuração. Como toda tecnologia possui uma curva de aprendizado, sendo necessário estudo e prática, sendo um framework desenvolvido com a linguagem JavaScript é necessário conhecimento prévio.
 
--Arquitetura:
+- Arquitetura:
 O React é fundamentado em componentes, que são objetos JavaScript e possuem propriedades, estado e um ciclo de vida gerenciado pelo framework, com o objetivo de atualizar o DOM de forma organizada e fácil. Utiliza a sintaxe JSX para organizar a renderização dos componentes. JSX foi criado pela equipe de desenvolvimento do React, para criação de componentes usados como template, misturando código JavaScript com código HTML. O JSX não é interpretado pelos navegadores, sendo necessário utilizar um transpilador para fazer a conversão, que são utilizados para facilitar o desenvolvimento dos componentes, porém não é obrigatório o uso, o React oferece APIs nativas do ECMAScript.
 O ciclo de vida de um componente é dividido em montagem, atualização, desmontagem e tratamento de erros, cada parte do ciclo de vida possui métodos que podem ser sobrescritos conforme necessidade. Sendo o único de uso obrigatório o método render, que quando executado atualiza o DOM, ocorrendo na alteração do estado ou criação do componente. Para realizar a leitura dos dados de um componente é utilizado o método this.state e para atualizar é utilizado o método setState, ou por meio de Hooks que são uma nova adição ao React 16.8, e permitem que você use o state e outros recursos do React sem escrever uma classe.
 
@@ -246,9 +246,9 @@ A usabilidade e a performance esperadas em um PWA praticamente exigem ser uma si
 O React utiliza o virtual DOM para renderizar os componentes, a manipulação do virtual DOM é mais performática do que a manipulação o DOM, quando é feito a alteração do componente, o React cria uma nova árvores com os componentes no virtual DOM, calcula a diferença entre a árvore antiga e nova e atualiza o DOM com apenas as diferenças.
 O livro Progressive Web APPs trás a comparação de renderização no navegador entre os principais frameworks front de mercado. O gráfico representa em milissegundo o tempo necessário para renderização no navegador redesenhar a página e o React se destaca nitidamente.
 
-<colocar imagem do livr>
+colocar imagem do livr
 Pontes, Guilherme. Progressive Web Apps . Casa do Código. Pesqueisa realizada pelo site auth0.com (PEYROTT, 2016)
- 
+
 Por ser uma PWA, o JavaScript será baixado e ficará no Application Cache do navegador. A página precisa estar disponível em poucos segundos, e isso inclui o primeiro acesso. Outro ponto importante é a utilização de componentes conforme necessidade do projeto.
 O react é one-way binding, a transição dos dados entre o DOM e os componentes são somente em uma direção, o estado e as propriedades do componente são copiados para o DOM somente por meio do método render, e os dados do DOM são enviados por meio de eventos. Fazendo com que o desenvolvimento seja mais simples e baseado em funções e facilita o entendimento do código.
 Do ponto de vista de performance, o melhor é atualizar quando for necessário atualizar, como clicando em no botão para submeter o formulário, ao invés de atualizar os atributos no JavaScript todas vez que as tags são alteradas. O React ganha sentido porque ele enfatiza fortemente a atualização do estado dos objetos via eventos. Ele condena o acesso aos componentes explicitamente, e isso torna-o simples, rápido e de fácil entendimento.
