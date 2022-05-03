@@ -6,5 +6,6 @@
         void Update(Payment payment);
         bool TryGetById(Guid id, out Payment payment);
         Payment GetById(Guid id);
+        IEnumerable<Payment> GetAllByContractId(Guid contractId);
     }
 }

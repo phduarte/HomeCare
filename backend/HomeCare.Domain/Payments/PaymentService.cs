@@ -87,5 +87,10 @@
 
             _notificationFacade.SendEmailAsync(payment.Contract.Supplier, "Pagamento confirmado", text);
         }
+
+        public IEnumerable<Payment> GetAllByContract(Guid contractId)
+        {
+            return _paymentsRepository.GetAllByContractId(contractId);
+        }
     }
 }

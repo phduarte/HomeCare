@@ -25,8 +25,9 @@ app.MapGet("/contract/{id}", (Guid id, IContractService contractService) =>
     try
     {
         var contract = contractService.GetById(id);
-
-        return Results.Ok(contract);
+        var response = ContractResponse.Parse(contract);
+        
+        return Results.Ok(response);
     }
     catch (ContractNotFoundException)
     {

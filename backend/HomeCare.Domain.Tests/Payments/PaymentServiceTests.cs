@@ -134,9 +134,9 @@ namespace HomeCare.Domain.Tests.Payments
         {
             Domain.Clients.Client client = new();
             Domain.Suppliers.Supplier supplier = new();
-            var contract = Contracts.Contract.Create(client, supplier, 1, "description", DateTime.Today);
+            var contract = Contracts.Contract.Create().With(client).With(supplier).With(1).With("description").With(DateTime.Today);
             var payment = new Payment(Guid.NewGuid(), contract, "payment description", PaymentStatus.Created, 1);
-            
+
             _paymentsRepository
                 .Setup(s => s.GetById(It.IsAny<Guid>()))
                 .Returns(payment);

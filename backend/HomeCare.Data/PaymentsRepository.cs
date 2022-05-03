@@ -30,5 +30,10 @@ namespace HomeCare.Data.InMemory
             _payments.Remove(ret);
             _payments.Add(payment);
         }
+
+        public IEnumerable<Payment> GetAllByContractId(Guid contractId)
+        {
+            return _payments.Where(x => x.Contract.Id.Equals(contractId));
+        }
     }
 }

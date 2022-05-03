@@ -41,7 +41,12 @@ namespace HomeCare.Domain.Contracts
                 throw new SupplierNotFoundException(contractSketch.SupplierId);
             }
 
-            var contract = Contract.Create(client, supplier, supplier.Price, contractSketch.JobDescription, contractSketch.Date);
+            var contract = Contract.Create()
+                .With(client)
+                .With(supplier)
+                .With(supplier.Price)
+                .With(contractSketch.JobDescription)
+                .With(contractSketch.Date);
 
             contract.Emit();
 

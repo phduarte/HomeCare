@@ -6,5 +6,6 @@
         PaymentReceipt Refund(Guid id);
         void Confirm(Guid id);
         Payment GetById(Guid id);
+        IEnumerable<Payment> GetAllByContract(Guid contractId);
     }
 }

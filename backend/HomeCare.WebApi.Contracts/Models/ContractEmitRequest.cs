@@ -7,8 +7,7 @@ public class ContractEmitRequest
     public Guid ClientId { get; set; }
     public DateTime ServiceDate { get; set; }
     public string JobDescription { get; set; }
-    public decimal Value { get; set; }
-
+    
     public ContractSketch ToModel()
     {
         return new ContractSketch

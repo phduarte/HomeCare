@@ -35,7 +35,7 @@ namespace HomeCare.Domain.Contracts
             string jobDescription = "instalação de janela";
             DateTime executionDate = DateTime.Today;
 
-            contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
+            contract = Contract.Create().With(client).With(supplier).With(price).With(jobDescription).With(executionDate);
 
             _contractsRepository
                 .Setup(s => s.GetById(It.IsAny<Guid>()))
@@ -115,7 +115,7 @@ namespace HomeCare.Domain.Contracts
         [Test]
         public void Cancel_WhenContractIsEmitted_ShouldBeCanceled()
         {
-            contract = Contract.Create(client, supplier, 1, "", DateTime.Today.AddDays(-61));
+            contract = Contract.Create().With(client).With(supplier).With(1).With("").With(DateTime.Today.AddDays(-61));
             contract.Emit();
 
             _contractsRepository

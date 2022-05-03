@@ -10,6 +10,7 @@
   },
   "RequestedCallbackEndpoint": "https://localhost:5013/payment/request",
   "ProcessedCallbackEndpoint": "https://localhost:5013/payment/confirm",
+  "Delay": 10000,
   "extensions": {
     "rabbitMQ": {
       "prefetchCount": 100,

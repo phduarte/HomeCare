@@ -64,17 +64,48 @@ namespace HomeCare.Domain.Contracts
             UpdateAt = DateTime.UtcNow;
         }
 
-        public static Contract Create(Client client, Supplier supplier, Money price, string jobDescription, DateTime executionDate)
+        public static Contract Create()
         {
             return new Contract
             {
-                Id = Guid.NewGuid(),
-                Client = client,
-                Supplier = supplier,
-                Price = price,
-                JobDescription = jobDescription,
-                ExecutionDate = executionDate
+                Id = Guid.NewGuid()
             };
+        }
+
+        public Contract With(Client client)
+        {
+            Client = client;
+            return this;
+        }
+
+        public Contract With(Supplier supplier)
+        {
+            Supplier = supplier;
+            return this;
+        }
+
+        public Contract With(Money money)
+        {
+            Price = money;
+            return this;
+        }
+
+        public Contract With(string description)
+        {
+            JobDescription = description;
+            return this;
+        }
+
+        public Contract With(DateTime dateTime)
+        {
+            ExecutionDate = dateTime;
+            return this;
+        }
+
+        public Contract With(Guid id)
+        {
+            Id = id;
+            return this;
         }
     }
 }

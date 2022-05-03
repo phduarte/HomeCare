@@ -2,12 +2,8 @@ using HomeCare.Domain.Payments;
 using HomeCare.IoC;
 using HomeCare.WebApi.Payments.Models;
 
-//using HomeCare.WebApi.Contracts.Model;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHomeCare(builder.Configuration);
@@ -22,19 +18,21 @@ if (app.Configuration.GetValue<bool>("UseSwagger"))
 
 app.UseHttpsRedirection();
 
-app.MapGet("/payment/{id}", (Guid id, IPaymentService _paymentService) =>
+app.MapGet("/payments/contract/{id}", (Guid id, IPaymentService _paymentService) =>
 {
     try
     {
-        var payment = _paymentService.GetById(id);
-        return Results.Ok(payment);
+        var payment = _paymentService.GetAllByContract(id);
+        PaymentSummaryResponse response = PaymentSummaryResponse.Parse(payment);
+
+        return Results.Ok(response);
     }
     catch (Exception ex)
     {
         return Results.BadRequest(ex);
     }
 })
-.WithName("GetPayment");
+.WithName("GetPaymentsByContract");
 
 app.MapPost("/payment/request", (PaymentRequest request, IPaymentService _paymentService) =>
 {
@@ -71,7 +69,6 @@ app.MapPost("/payment/confirm", (PaymentRefundRequest request, IPaymentService _
     try
     {
         _paymentService.Confirm(request.Id);
-        //var response = PaymentConfirmResponse.Parse(request);
         return Results.Ok($"O pagamento foi confirmado");
     }
     catch (Exception ex)
