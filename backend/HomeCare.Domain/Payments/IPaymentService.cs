@@ -7,5 +7,6 @@
         void Confirm(Guid id);
         Payment GetById(Guid id);
         IEnumerable<Payment> GetAllByContract(Guid contractId);
+        IEnumerable<Payment> GetAll();
     }
 }

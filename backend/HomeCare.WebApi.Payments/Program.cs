@@ -18,7 +18,21 @@ if (app.Configuration.GetValue<bool>("UseSwagger"))
 
 app.UseHttpsRedirection();
 
-app.MapGet("/payments/contract/{id}", (Guid id, IPaymentService _paymentService) =>
+app.MapGet("/payments", (IPaymentService _paymentService) =>
+{
+    try
+    {
+        var payments = _paymentService.GetAll();
+        return Results.Ok(payments);
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(ex);
+    }
+})
+.WithName("GetPayments");
+
+app.MapGet("/payments/by-contract/{id}", (Guid id, IPaymentService _paymentService) =>
 {
     try
     {

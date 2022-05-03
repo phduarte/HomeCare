@@ -92,5 +92,10 @@
         {
             return _paymentsRepository.GetAllByContractId(contractId);
         }
+
+        public IEnumerable<Payment> GetAll()
+        {
+            return _paymentsRepository.GetAll();
+        }
     }
 }
