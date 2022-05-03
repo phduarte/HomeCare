@@ -10,12 +10,12 @@ namespace HomeCare.Domain.Contracts
         private readonly IContractsRepository _contractsRepository;
         private readonly ISupplierService _supplierService;
         private readonly IClientService _clientService;
-        private readonly IContractFinishedNotificationFacade _notificationFacade;
+        private readonly INotificationFacade _notificationFacade;
 
         public ContractService(IContractsRepository contractsRepository,
             ISupplierService supplierService,
             IClientService clientService,
-            IContractFinishedNotificationFacade notificationFacade,
+            INotificationFacade notificationFacade,
             IPaymentRequestQueueService paymentRequestQueue)
         {
             _contractsRepository = contractsRepository;
@@ -28,7 +28,19 @@ namespace HomeCare.Domain.Contracts
         public Contract Emit(ContractSketch contractSketch)
         {
             var client = _clientService.GetById(contractSketch.ClientId);
+
+            if (client is null)
+            {
+                throw new ClientNotFoundException(contractSketch.ClientId);
+            }
+
             var supplier = _supplierService.GetById(contractSketch.SupplierId);
+
+            if (supplier is null)
+            {
+                throw new SupplierNotFoundException(contractSketch.SupplierId);
+            }
+
             var contract = Contract.Create(client, supplier, supplier.Price, contractSketch.JobDescription, contractSketch.Date);
 
             contract.Emit();
@@ -41,7 +53,8 @@ namespace HomeCare.Domain.Contracts
 
             _contractsRepository.Create(contract);
             _paymentRequestQueue.Publish(payment);
-            _notificationFacade.Notify(contract);
+
+            NotifyContractEmitted(contract);
 
             return contract;
         }
@@ -54,7 +67,8 @@ namespace HomeCare.Domain.Contracts
                 contract.Done();
 
                 _contractsRepository.Update(contract);
-                _notificationFacade.Notify(contract);
+
+                NotifyServiceIsDone(contract);
             }
             else
             {
@@ -70,6 +84,8 @@ namespace HomeCare.Domain.Contracts
             {
                 contract.Finish();
                 _contractsRepository.Update(contract);
+
+                NotifyContractFinished(contract);
             }
             else
             {
@@ -86,7 +102,7 @@ namespace HomeCare.Domain.Contracts
                 contract.Cancel();
 
                 _contractsRepository.Update(contract);
-                _notificationFacade.Notify(contract);
+                NotifyContractCancelled(contract);
             }
             else
             {
@@ -104,6 +120,46 @@ namespace HomeCare.Domain.Contracts
             }
 
             throw new ContractNotFoundException(guid);
+        }
+
+        private void NotifyContractCancelled(Contract contract)
+        {
+            var text = $"O contrato {contract.Id} foi cancelado. O dinheiro será devolvido para o cliente.";
+
+            _notificationFacade.SendEmailAsync(contract.Supplier, "Contrato cancelado", text);
+
+            text = $"O contrato {contract.Id} foi cancelado. O dinheiro será devolvido para sua conta.";
+
+            _notificationFacade.SendEmailAsync(contract.Client, "Contrato cancelado", text);
+        }
+
+        private void NotifyContractFinished(Contract contract)
+        {
+            var text = $"O cliente confirmou que o serviço contratado através do protocolo {contract.Id} está feito, por isso, o contrato será concluído. Em breve você receberá o dinheiro em sua conta.";
+
+            _notificationFacade.SendEmailAsync(contract.Supplier, "Contrato concluído", text);
+
+            text = $"Você confirmou que o serviço está concluído e por isso iremos finalizar o contrato {contract.Id}. Em breve o dinheiro será liberado para a conta do prestador.";
+
+            _notificationFacade.SendEmailAsync(contract.Client, "Contrato concluído", text);
+        }
+
+        private void NotifyServiceIsDone(Contract contract)
+        {
+            var text = $"O prestador {contract.Supplier} informou que o serviço já foi concluído. Confirme a conclusão para que o prestador receba o dinheiro.";
+
+            _notificationFacade.SendEmailAsync(contract.Client, "Serviço feito", text);
+
+            text = $"Você informou que o serviço do contrato {contract.Id} está feito. Informamos o cliente para que ele confirme e após isso iremos liberar o dinheiro para sua conta.";
+
+            _notificationFacade.SendEmailAsync(contract.Supplier, "Serviço feito", text);
+        }
+
+        private void NotifyContractEmitted(Contract contract)
+        {
+            var text = $"O cliente {contract.Client} acabou de te contratar! Fique atento que em breve ele entrará em contato com você para combinar o serviço.";
+
+            _notificationFacade.SendEmailAsync(contract.Supplier, "Você foi contratado", text);
         }
     }
 }

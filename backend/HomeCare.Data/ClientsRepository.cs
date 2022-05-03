@@ -10,21 +10,26 @@ namespace HomeCare.Data.InMemory
                 Id = Guid.Parse("{048EB20C-452C-4181-8870-BDC36B45DB9F}"),
                 Name="Paulo",
                 Username="paulo",
-                Email="paul_ikis@hotmail.com"
+                Email="paulohincdig@gmail.com"
             },
             new Client{
                 Id = Guid.Parse("{5888B106-BC72-4845-B829-39A546F07955}"),
                 Name="Angelo",
                 Username="angelo",
-                Email="paulohincdig@gmail.com"
+                Email="silva.rafael91k@gmail.com"
             },
             new Client{
                 Id = Guid.Parse("{72998E62-324A-45BF-AC88-7CBDFF92EE2F}"),
                 Name="Franclis",
                 Username="galdino",
-                Email="1327157@sga.pucminas.br"
+                Email="franclisgaldino@gmail.com"
             }
         };
+
+        public IEnumerable<Client> GetAll()
+        {
+            return _clients;
+        }
 
         public Client GetById(Guid clientId)
         {

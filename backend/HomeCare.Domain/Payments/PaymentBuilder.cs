@@ -6,7 +6,7 @@ namespace HomeCare.Domain.Payments
     {
         private string _description = string.Empty;
         private PaymentStatus _paymentStatus = PaymentStatus.Created;
-        private Contract _contract = null;
+        private Contract _contract = new Contract();
         private Money _value = 0;
         public Guid _id;
 

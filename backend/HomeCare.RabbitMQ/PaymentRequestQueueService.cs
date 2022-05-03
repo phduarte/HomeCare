@@ -14,7 +14,24 @@ namespace HomeCare.RabbitMQ
         public void Publish(Payment payment)
         {
             var messageBroker = new MessageBroker(_options.Uri, _options.RequestedQueueName);
-            messageBroker.Publish(payment.Id);
+            var message = PaymentRequestMessage.Parse(payment);
+
+            messageBroker.Publish(message);
+        }
+    }
+
+    internal class PaymentRequestMessage
+    {
+        public Guid Id { get; private set; }
+        public decimal Value { get; private set; }
+
+        public static PaymentRequestMessage Parse(Payment payment)
+        {
+            return new PaymentRequestMessage
+            {
+                Id = payment.Id,
+                Value = payment.Value,
+            };
         }
     }
 }

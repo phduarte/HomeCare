@@ -10,15 +10,16 @@ namespace HomeCare.Domain.Tests.Payments
         private Mock<IPaymentGateway> _paymentGateway;
         private Mock<IPaymentsRepository> _paymentsRepository;
         private Mock<IPaymentsProcessedQueueService> _paymentsProcessedQueue;
-        private Mock<IPaymentNotificationFacade> _notificationFacade;
-        private readonly IPaymentService _paymentService;
+        private Mock<INotificationFacade> _notificationFacade;
+        private IPaymentService _paymentService;
 
-        public PaymentServiceTests()
+        [SetUp]
+        public void Setup()
         {
             _paymentGateway = new Mock<IPaymentGateway>();
             _paymentsRepository = new Mock<IPaymentsRepository>();
             _paymentsProcessedQueue = new Mock<IPaymentsProcessedQueueService>();
-            _notificationFacade = new Mock<IPaymentNotificationFacade>();
+            _notificationFacade = new Mock<INotificationFacade>();
             _paymentService = new PaymentService(_paymentGateway.Object, _paymentsRepository.Object, _paymentsProcessedQueue.Object, _notificationFacade.Object);
         }
 
@@ -86,9 +87,19 @@ namespace HomeCare.Domain.Tests.Payments
                 .Returns<Payment>(null);
 
             Assert.Throws<PaymentNotFoundException>(() => _paymentService.Refund(Guid.Empty));
+        }
+
+        [Test]
+        public void Refund_WhenPaymentDoesNotExists_ShouldNotSendNotification()
+        {
+            _paymentsRepository
+                .Setup(s => s.GetById(It.IsAny<Guid>()))
+                .Returns<Payment>(null);
+
+            Assert.Throws<PaymentNotFoundException>(() => _paymentService.Refund(Guid.Empty));
 
             _paymentsProcessedQueue
-                .Verify(s => s.Publish(It.IsAny<Payment>()), Times.Once);
+                .Verify(s => s.Publish(It.IsAny<Payment>()), Times.Never);
         }
 
         [Test]
@@ -119,29 +130,34 @@ namespace HomeCare.Domain.Tests.Payments
         }
 
         [Test]
-        public void Complete_Ok()
+        public void Confirm_ShouldSendNotification_WhenPaymentCompleted()
         {
+            Domain.Clients.Client client = new();
+            Domain.Suppliers.Supplier supplier = new();
+            var contract = Contracts.Contract.Create(client, supplier, 1, "description", DateTime.Today);
+            var payment = new Payment(Guid.NewGuid(), contract, "payment description", PaymentStatus.Created, 1);
+            
             _paymentsRepository
                 .Setup(s => s.GetById(It.IsAny<Guid>()))
-                .Returns(PaymentBuilder.Create().Build());
+                .Returns(payment);
 
-            _paymentService.Complete(Guid.Empty);
+            _paymentService.Confirm(Guid.Empty);
 
             _notificationFacade
-                .Verify(s => s.Notify(It.IsAny<Payment>()), Times.Once);
+                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
-        public void Complete_WhenPaymentNotFound_ShouldThrowsPaymentNotFoundException()
+        public void Confirm_WhenPaymentNotFound_ShouldThrowsPaymentNotFoundException()
         {
             _paymentsRepository
                 .Setup(s => s.GetById(It.IsAny<Guid>()))
                 .Returns<Payment>(null);
 
-            Assert.Throws<PaymentNotFoundException>(() => _paymentService.Complete(Guid.Empty));
+            Assert.Throws<PaymentNotFoundException>(() => _paymentService.Confirm(Guid.NewGuid()));
 
             _notificationFacade
-                .Verify(s => s.Notify(It.IsAny<Payment>()), Times.Never);
+                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
         }
     }
 }

@@ -4,5 +4,6 @@
     {
         IEnumerable<Supplier> Search(SearchCriteria criteria);
         Supplier GetById(Guid supplierId);
+        Supplier GetByUserName(string username);
     }
 }

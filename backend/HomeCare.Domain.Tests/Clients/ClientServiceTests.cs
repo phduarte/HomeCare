@@ -39,9 +39,7 @@ namespace HomeCare.Domain.Tests.Clients
                 .Setup(s => s.GetById(It.IsAny<Guid>()))
                 .Throws<Exception>();
 
-            var ret = _clientService.GetById(Guid.NewGuid());
-
-            Assert.IsNull(ret);
+            Assert.Throws<ClientNotFoundException>(() => _clientService.GetById(Guid.NewGuid()));
         }
 
         [Test]
@@ -69,7 +67,6 @@ namespace HomeCare.Domain.Tests.Clients
 
             var ret = _clientService.GetByUsername(string.Empty);
 
-            Assert.IsNull(ret);
         }
     }
 }

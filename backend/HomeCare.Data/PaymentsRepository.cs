@@ -6,7 +6,7 @@ namespace HomeCare.Data.InMemory
     {
         private readonly static List<Payment> _payments = new List<Payment>();
 
-        public void Create(Payment payment)
+        public void Add(Payment payment)
         {
             _payments.Add(payment);
         }

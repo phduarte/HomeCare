@@ -8,6 +8,7 @@ namespace HomeCare.Domain.Contracts
         private CancelSpecification _cancelledSpecification = new();
         private PendingSpecification _pendingSpecification = new();
         private EmitSpecification _emitSpecification = new();
+        private FinishSpecification _finishSpecification = new();
 
         public Client Client { get; private set; }
         public Supplier Supplier { get; private set; }
@@ -19,6 +20,7 @@ namespace HomeCare.Domain.Contracts
         public bool IsPending => _pendingSpecification.IsSatisfied(this);
         public bool CanBeCancelled => _cancelledSpecification.IsSatisfied(this);
         public bool CanBeEmitted => _emitSpecification.IsSatisfied(this);
+        public bool CanBeFinished => _finishSpecification.IsSatisfied(this);
 
         public void Emit()
         {
@@ -40,9 +42,9 @@ namespace HomeCare.Domain.Contracts
 
         public void Finish()
         {
-            if (!IsPending)
+            if (!CanBeFinished)
             {
-                throw new ContractIsNotPendingException();
+                throw new ContractIsNotDoneException();
             }
 
             UpdateStatus(ContractStatus.Finished);

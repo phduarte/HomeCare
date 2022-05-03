@@ -14,7 +14,7 @@ namespace HomeCare.RabbitMQ
         public void Publish(Payment payment)
         {
             var messageBroker = new MessageBroker(_options.Uri, _options.ProcessedQueueName);
-            messageBroker.Publish(payment.Id);
+            messageBroker.Publish(payment);
         }
     }
 }
