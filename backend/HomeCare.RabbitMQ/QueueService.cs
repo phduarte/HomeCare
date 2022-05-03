@@ -37,6 +37,7 @@ namespace HomeCare.RabbitMQ
                                  routingKey: QueueName,
                                  basicProperties: properties,
                                  body: body);
+            channel.Close();
         }
 
         private IModel CreateChannel()

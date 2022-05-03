@@ -9,6 +9,7 @@ namespace HomeCare.WebApi.Contracts.Model
         public string Supplier { get; private set; }
         public string JobDescription { get; private set; }
         public DateTime ServiceDate { get; private set; }
+        public string Status { get; set; }
 
         public static ContractResponse Parse(Contract contract)
         {
@@ -18,7 +19,8 @@ namespace HomeCare.WebApi.Contracts.Model
                 Client = contract.Client.Name,
                 Supplier = contract.Supplier.Name,
                 JobDescription = contract.JobDescription,
-                ServiceDate = contract.ExecutionDate
+                ServiceDate = contract.ExecutionDate,
+                Status = contract.Status.ToString()
             };
         }
     }

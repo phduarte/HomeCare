@@ -69,12 +69,38 @@ app.MapPost("/contract/emit", (ContractEmitRequest request, IContractService con
 })
 .WithName("EmitContract");
 
+app.MapPost("/contract/done", (ContractRequest request, IContractService contractService) =>
+{
+    try
+    {
+        contractService.Done(request.ContractId);
+        var contract = contractService.GetById(request.ContractId);
+        var response = ContractResponse.Parse(contract);
+        return Results.Ok(response);
+    }
+    catch (ContractNotFoundException)
+    {
+        return Results.NotFound();
+    }
+    catch (ContractIsNotPendingException)
+    {
+        return Results.UnprocessableEntity();
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(ex);
+    }
+})
+.WithName("DoneContract");
+
 app.MapPost("/contract/cancel", (ContractRequest request, IContractService contractService) =>
 {
     try
     {
         contractService.Cancel(request.ContractId);
-        return Results.Ok($"Contrato {request.ContractId} foi cancelado.");
+        var contract = contractService.GetById(request.ContractId);
+        var response = ContractResponse.Parse(contract);
+        return Results.Ok(response);
     }
     catch (ContractNotFoundException)
     {
@@ -96,7 +122,10 @@ app.MapPost("/contract/finish", (ContractRequest request, IContractService contr
     try
     {
         contractService.Finish(request.ContractId);
-        return Results.Ok($"Contrato {request.ContractId} foi finalizado.");
+        var contract = contractService.GetById(request.ContractId);
+        var response = ContractResponse.Parse(contract);
+
+        return Results.Ok(response);
     }
     catch (ContractNotFoundException)
     {
