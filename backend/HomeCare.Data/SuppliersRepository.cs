@@ -139,5 +139,10 @@ namespace HomeCare.Data.InMemory
         {
             return _suppliers.FirstOrDefault(x => x.Id == guid);
         }
+
+        public Supplier GetByUserName(string username)
+        {
+            return _suppliers.FirstOrDefault(x => x.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

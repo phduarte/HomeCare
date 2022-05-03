@@ -8,6 +8,7 @@ namespace HomeCare.Domain.Contracts
         private CancelSpecification _cancelledSpecification = new();
         private PendingSpecification _pendingSpecification = new();
         private EmitSpecification _emitSpecification = new();
+        private FinishSpecification _finishSpecification = new();
 
         public Client Client { get; private set; }
         public Supplier Supplier { get; private set; }
@@ -19,6 +20,7 @@ namespace HomeCare.Domain.Contracts
         public bool IsPending => _pendingSpecification.IsSatisfied(this);
         public bool CanBeCancelled => _cancelledSpecification.IsSatisfied(this);
         public bool CanBeEmitted => _emitSpecification.IsSatisfied(this);
+        public bool CanBeFinished => _finishSpecification.IsSatisfied(this);
 
         public void Emit()
         {
@@ -40,9 +42,9 @@ namespace HomeCare.Domain.Contracts
 
         public void Finish()
         {
-            if (!IsPending)
+            if (!CanBeFinished)
             {
-                throw new ContractIsNotPendingException();
+                throw new ContractIsNotDoneException();
             }
 
             UpdateStatus(ContractStatus.Finished);
@@ -62,17 +64,48 @@ namespace HomeCare.Domain.Contracts
             UpdateAt = DateTime.UtcNow;
         }
 
-        public static Contract Create(Client client, Supplier supplier, Money price, string jobDescription, DateTime executionDate)
+        public static Contract Create()
         {
             return new Contract
             {
-                Id = Guid.NewGuid(),
-                Client = client,
-                Supplier = supplier,
-                Price = price,
-                JobDescription = jobDescription,
-                ExecutionDate = executionDate
+                Id = Guid.NewGuid()
             };
+        }
+
+        public Contract With(Client client)
+        {
+            Client = client;
+            return this;
+        }
+
+        public Contract With(Supplier supplier)
+        {
+            Supplier = supplier;
+            return this;
+        }
+
+        public Contract With(Money money)
+        {
+            Price = money;
+            return this;
+        }
+
+        public Contract With(string description)
+        {
+            JobDescription = description;
+            return this;
+        }
+
+        public Contract With(DateTime dateTime)
+        {
+            ExecutionDate = dateTime;
+            return this;
+        }
+
+        public Contract With(Guid id)
+        {
+            Id = id;
+            return this;
         }
     }
 }

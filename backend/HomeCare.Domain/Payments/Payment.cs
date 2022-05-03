@@ -51,7 +51,7 @@ namespace HomeCare.Domain.Payments
                 Id = Guid.NewGuid(),
                 Status = status,
                 CreatedAt = DateTime.UtcNow,
-                CreatedBy = "paulo"
+                CreatedBy = "api"
             });
         }
     }

@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using HomeCare.Domain.Clients;
+﻿using HomeCare.Domain.Clients;
 using HomeCare.Domain.Payments;
 using HomeCare.Domain.Suppliers;
 using Moq;
@@ -13,27 +12,40 @@ namespace HomeCare.Domain.Contracts
         private Mock<IContractsRepository> _contractsRepository;
         private Mock<ISupplierService> _supplierService;
         private Mock<IClientService> _clientService;
-        private Mock<IContractFinishedNotificationFacade> _notificationFacade;
+        private Mock<INotificationFacade> _notificationFacade;
         private Mock<IPaymentRequestQueueService> _paymentRequestQueue;
         private IContractService _contractService;
+        private Contract contract;
+        private Client client;
+        private Supplier supplier;
 
-        public ContractServiceTests()
+        [SetUp]
+        public void Setup()
         {
             _contractsRepository = new Mock<IContractsRepository>();
             _supplierService = new Mock<ISupplierService>();
             _clientService = new Mock<IClientService>();
-            _notificationFacade = new Mock<IContractFinishedNotificationFacade>();
+            _notificationFacade = new Mock<INotificationFacade>();
             _paymentRequestQueue = new Mock<IPaymentRequestQueueService>();
             _contractService = new ContractService(_contractsRepository.Object, _supplierService.Object, _clientService.Object, _notificationFacade.Object, _paymentRequestQueue.Object);
+
+            client = new();
+            supplier = new();
+            Money price = 100;
+            string jobDescription = "instalação de janela";
+            DateTime executionDate = DateTime.Today;
+
+            contract = Contract.Create().With(client).With(supplier).With(price).With(jobDescription).With(executionDate);
+
+            _contractsRepository
+                .Setup(s => s.GetById(It.IsAny<Guid>()))
+                .Returns(contract);
         }
 
         [Test]
-        public void Emit()
+        public void Emit_WhenContractIsSketched_ShouldBeEmitted()
         {
-            var contractSketch = new ContractSketch
-            {
-
-            };
+            var contractSketch = new ContractSketch();
 
             _clientService
                 .Setup(s => s.GetById(contractSketch.ClientId))
@@ -48,25 +60,23 @@ namespace HomeCare.Domain.Contracts
             _contractsRepository
                 .Verify(s => s.Create(It.IsAny<Contract>()), Times.Once);
 
+            _contractsRepository
+                .Setup(s => s.GetById(It.IsAny<Guid>()))
+                .Returns(contract);
+
             _paymentRequestQueue
                 .Verify(s => s.Publish(It.IsAny<Payment>()), Times.Once);
 
             _notificationFacade
-                .Verify(s => s.Notify(It.IsAny<Contract>()));
+                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
 
             Assert.AreEqual(ContractStatus.Emitted, ret.Status);
         }
 
         [Test]
-        public void Done()
+        public void Done_WhenContractIsEmitted_ShouldBeDone()
         {
-            Client client = new();
-            Supplier supplier = new();
-            Money price = 100;
-            string jobDescription = "instalação de janela";
-            DateTime executionDate = DateTime.Today;
-
-            var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
+            contract.Emit();
 
             _contractService.Done(contract.Id);
 
@@ -74,14 +84,9 @@ namespace HomeCare.Domain.Contracts
         }
 
         [Test(Description = "Deve disparar uma excessão específica quando tentar concluir um contrato que não existe")]
-        public void Done_ShouldFail()
+        public void Done_WhenContractNotFound_ShouldThrowsContractNotFoundException()
         {
-            Client client = new();
-            Supplier supplier = new();
-            Money price = 100;
-            string jobDescription = "instalação de janela";
-            DateTime executionDate = DateTime.Today;
-            var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
+            contract.Emit();
 
             _contractsRepository
                 .Setup(s => s.Update(contract))
@@ -90,39 +95,39 @@ namespace HomeCare.Domain.Contracts
             Assert.Throws<ContractNotFoundException>(() => _contractService.Done(contract.Id));
 
             _notificationFacade
-                .Verify(s => s.Notify(contract), Times.Never);
+                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
         }
 
         [Test]
-        public void Finish()
+        public void Finish_WhenContractIsDone_ShouldBeFinished()
         {
-            Client client = new();
-            Supplier supplier = new();
-            Money price = 100;
-            string jobDescription = "instalação de janela";
-            DateTime executionDate = DateTime.Today;
-
-            var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
+            contract.Emit();
+            contract.Done();
 
             _contractService.Finish(contract.Id);
 
+            _contractsRepository
+                    .Verify(s => s.Update(It.IsAny<Contract>()), Times.Once);
+
             Assert.AreEqual(ContractStatus.Finished, contract.Status);
         }
 
         [Test]
-        public void Cancel()
+        public void Cancel_WhenContractIsEmitted_ShouldBeCanceled()
         {
-            Client client = new();
-            Supplier supplier = new();
-            Money price = 100;
-            string jobDescription = "instalação de janela";
-            DateTime executionDate = DateTime.Today;
+            contract = Contract.Create().With(client).With(supplier).With(1).With("").With(DateTime.Today.AddDays(-61));
+            contract.Emit();
 
-            var contract = Contract.Create(client, supplier, price, jobDescription, executionDate);
+            _contractsRepository
+                .Setup(s => s.GetById(It.IsAny<Guid>()))
+                .Returns(contract);
 
             _contractService.Cancel(contract.Id);
 
-            Assert.AreEqual(ContractStatus.Finished, contract.Status);
+            _contractsRepository
+                .Verify(s => s.Update(It.IsAny<Contract>()), Times.Once);
+
+            Assert.AreEqual(ContractStatus.Canceled, contract.Status);
         }
     }
 }

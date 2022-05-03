@@ -1,37 +1,41 @@
-﻿using HomeCare.Domain.Contracts;
-using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace HomeCare.SendGrid
 {
-    public class SendGridNotificationFacade : IPaymentNotificationFacade, IContractFinishedNotificationFacade
+    public class SendGridNotificationFacade : INotificationFacade
     {
         private readonly SendGridClient _sendGridClient;
-        private EmailAddress from => new EmailAddress("phduarte87@outlook.com", "Plataforma");
 
         public SendGridNotificationFacade(SendGridClient sendGridClient)
         {
             _sendGridClient = sendGridClient;
         }
 
-        public void Notify(Payment payment)
+        public async Task SendEmailAsync(User from, User to, string subject, string text)
         {
-            var client = payment.Contract.Client;
-            var to = new EmailAddress(client.Email, client.Name);
-            var plainTextContent = "O prestador informou que o serviço já foi concluído. Agora é hora de liberar o dinheiro.";
-            var htmlContent = "O prestador informou que o serviço já foi concluído. Clique aqui para liberar o dinheiro.";
-            var msg = MailHelper.CreateSingleEmail(from, to, "Serviço concluído", plainTextContent, htmlContent);
-            _sendGridClient.SendEmailAsync(msg);
+            var emailFrom = new EmailAddress(from.Email, $"{from.Name} via HomeCare");
+            var emailTo = new EmailAddress(to.Email, to.Name);
+            var msg = MailHelper.CreateSingleEmail(emailFrom, emailTo, subject, text, text);
+
+            await _sendGridClient.SendEmailAsync(msg);
         }
 
-        public void Notify(Contract contract)
+        public async Task SendEmailAsync(User to, string subject, string text)
         {
-            var to = new EmailAddress(contract.Supplier.Email, contract.Supplier.Name);
-            var plainTextContent = "Um cliente acabou de te contratar! Fique atento que em breve ele entrará em contato com você para combinar o serviço.";
-            var htmlContent = "Um cliente acabou de te contratar! Fique atento que em breve ele entrará em contato com você para combinar o serviço.";
-            var msg = MailHelper.CreateSingleEmail(from, to, "Você foi contratado", plainTextContent, htmlContent);
-            _sendGridClient.SendEmailAsync(msg);
+            var from = new Admin
+            {
+                Email = "phduarte87@outlook.com",
+                Name = "HomeCare"
+            };
+
+            await SendEmailAsync(from, to, subject, text);
         }
+    }
+
+    class Admin : User
+    {
+
     }
 }

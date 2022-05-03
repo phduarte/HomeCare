@@ -6,7 +6,7 @@ namespace HomeCare.Data.InMemory
     {
         private readonly static List<Payment> _payments = new List<Payment>();
 
-        public void Create(Payment payment)
+        public void Add(Payment payment)
         {
             _payments.Add(payment);
         }
@@ -29,6 +29,16 @@ namespace HomeCare.Data.InMemory
 
             _payments.Remove(ret);
             _payments.Add(payment);
+        }
+
+        public IEnumerable<Payment> GetAllByContractId(Guid contractId)
+        {
+            return _payments.Where(x => x.Contract.Id.Equals(contractId));
+        }
+
+        public IEnumerable<Payment> GetAll()
+        {
+            return _payments;
         }
     }
 }

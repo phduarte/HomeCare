@@ -30,5 +30,10 @@
         {
             return _suppliersRepository.GetById(supplierId);
         }
+
+        public Supplier GetByUserName(string username)
+        {
+            return _suppliersRepository.GetByUserName(username);
+        }
     }
 }

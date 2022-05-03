@@ -58,7 +58,7 @@ namespace HomeCare.Controllers
         {
             try
             {
-                _paymentService.Complete(id);
+                _paymentService.Confirm(id);
                 var response = PaymentConfirmResponse.Parse(id);
                 return Ok(response);
             }
