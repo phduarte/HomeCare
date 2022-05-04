@@ -13,6 +13,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "montador", "pedreiro", "eletricista" },
                 Price = 150,
                 Rate = 4,
+                Username = "prestador1",
                 Location = new Location
                 {
                     Latitude = 2,
@@ -28,6 +29,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "montador" },
                 Price = 80,
                 Rate = 2,
+                Username = "prestador2",
                 Location = new Location
                 {
                     Latitude = 5,
@@ -43,6 +45,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "montador" },
                 Price = 95,
                 Rate = 4,
+                Username = "prestador3",
                 Location = new Location
                 {
                     Latitude = 2,
@@ -58,6 +61,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "pedreiro" },
                 Price = 120,
                 Rate = 5,
+                Username = "prestador4",
                 Location = new Location
                 {
                     Latitude = 3,
@@ -73,6 +77,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "eletricista", "elétrica", "eletrica" },
                 Price = 135,
                 Rate = 4,
+                Username = "prestador5",
                 Location = new Location
                 {
                     Latitude = 7,
@@ -88,6 +93,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "bombeiro-hidráulico", "bombeiro", "hidráulico", "hidraulico" },
                 Price = 97,
                 Rate = 4,
+                Username = "prestador6",
                 Location = new Location
                 {
                     Latitude = 6,
@@ -103,6 +109,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "mecânico", "mecanico" },
                 Price = 180,
                 Rate = 5,
+                Username = "prestador7",
                 Location = new Location
                 {
                     Latitude = 12,
@@ -118,6 +125,7 @@ namespace HomeCare.Data.InMemory
                 Tags = new List<string>{ "informática", "informatica", "formatação", "impressora" },
                 Price = 50,
                 Rate = 3,
+                Username = "prestador8",
                 Location = new Location
                 {
                     Latitude = 8,
