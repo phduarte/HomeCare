@@ -47,7 +47,7 @@ app.MapGet("/client", (Guid id, IClientService clientsService) =>
 })
 .WithName("GetClientById");
 
-app.MapPost("/login", (string username, string password, IClientService clientsService) =>
+app.MapPost("/client/login", (string username, string password, IClientService clientsService) =>
 {
     if (clientsService.GetByUsername(username) is Client client)
     {
