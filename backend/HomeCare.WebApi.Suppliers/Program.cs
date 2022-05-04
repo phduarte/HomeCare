@@ -48,7 +48,7 @@ app.MapGet("/suppliers/search", (long latitude, long longitude, long range, stri
 })
 .WithName("SearchSuppliers");
 
-app.MapGet("/supplier", (Guid id, ISupplierService _supplierService) =>
+app.MapGet("/supplier/{id}", (Guid id, ISupplierService _supplierService) =>
 {
     try
     {
@@ -64,7 +64,7 @@ app.MapGet("/supplier", (Guid id, ISupplierService _supplierService) =>
 })
 .WithName("GetSuppliers");
 
-app.MapGet("/supplier/login", (string username, string password, ISupplierService _supplierService) =>
+app.MapPost("/supplier/login", (string username, string password, ISupplierService _supplierService) =>
 {
     try
     {
