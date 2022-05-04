@@ -30,9 +30,11 @@
             var request = RequestForPayment.CreateDebitFor(payment);
             var receipt = _paymentGateway.Proccess(request);
 
+            _paymentsRepository.Add(payment);
+
             payment.Pay(receipt);
 
-            _paymentsRepository.Add(payment);
+            _paymentsRepository.Update(payment);
             _paymentsProcessedQueue.Publish(payment);
 
             return receipt;
@@ -54,12 +56,6 @@
             return receipt;
         }
 
-        /// <summary>
-        /// Esse método é importante para manter a consistência de apenas o serviço de pagamentos conectar ao banco PAYMENTS
-        /// Ele não é feito dentro do método Pay ou Refund pq esses métodos já possuem uma chamada crítica (gateway de pagamentos) e caso ele falhe, podemos ter inconsistência de dados no banco ou pagamentos em duplicidade
-        /// por isso pagamentos só é salvo no banco depois que a integração externa é concluída, porém, o worker rebate nesse mesmo microserviço para que ele complete o pagamento e notifique o cliente.
-        /// </summary>
-        /// <param name="payment"></param>
         public void Confirm(Guid id)
         {
             var payment = _paymentsRepository.GetById(id) ?? throw new PaymentNotFoundException(id);
