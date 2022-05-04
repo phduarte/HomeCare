@@ -9,6 +9,11 @@
             _clientsRepository = clientsRepository;
         }
 
+        public IEnumerable<Client> GetAll()
+        {
+            return _clientsRepository.GetAll();
+        }
+
         public Client GetById(Guid clientId)
         {
             try
@@ -17,7 +22,7 @@
             }
             catch
             {
-                return null;
+                throw new ClientNotFoundException(clientId);
             }
         }
 
@@ -29,8 +34,9 @@
             }
             catch
             {
-                return null;
             }
+
+            return null;
         }
     }
 }

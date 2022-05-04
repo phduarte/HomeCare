@@ -4,9 +4,9 @@ namespace HomeCare.Domain.Payments
 {
     public class PaymentBuilder
     {
-        private string _description = string.Empty;
+        private string _description = null;
         private PaymentStatus _paymentStatus = PaymentStatus.Created;
-        private Contract _contract = null;
+        private Contract _contract = new Contract();
         private Money _value = 0;
         public Guid _id;
 

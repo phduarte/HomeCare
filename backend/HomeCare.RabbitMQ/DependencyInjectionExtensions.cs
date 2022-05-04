@@ -9,8 +9,8 @@ namespace HomeCare.RabbitMQ
         public static IServiceCollection AddRabbitMq(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton(configuration.GetSection("RabbitMq").Get<RabbitMqOptions>());
-            services.AddScoped<IPaymentsProcessedQueueService, PaymentsProcessedQueueService>();
-            services.AddScoped<IPaymentRequestQueueService, PaymentRequestQueueService>();
+            services.AddSingleton<IPaymentsProcessedQueueService, PaymentsProcessedQueueService>();
+            services.AddSingleton<IPaymentRequestQueueService, PaymentRequestQueueService>();
 
             return services;
         }

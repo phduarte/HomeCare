@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using HomeCare.Domain.Contracts;
-using HomeCare.Domain.Payments;
 using Microsoft.Extensions.Configuration;
 using SendGrid;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.CodeAnalysis;
+using HomeCare.Domain;
 
 [assembly: InternalsVisibleTo("HomeCare.SendGrid.Tests")]
 namespace HomeCare.SendGrid
@@ -21,8 +20,7 @@ namespace HomeCare.SendGrid
                     var sendGridOptions = s.GetService<SendGridOptions>();
                     return new SendGridClient(sendGridOptions.ApiKey);
                 })
-                .AddScoped<IPaymentNotificationFacade, SendGridNotificationFacade>()
-                .AddScoped<IContractFinishedNotificationFacade, SendGridNotificationFacade>();
+                .AddScoped<INotificationFacade, SendGridNotificationFacade>();
             return services;
         }
     }

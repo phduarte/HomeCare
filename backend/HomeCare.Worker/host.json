@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "RequestedCallbackEndpoint": "https://localhost:5013/payment/request",
+  "ProcessedCallbackEndpoint": "https://localhost:5013/payment/confirm",
+  "Delay": 10000,
+  "extensions": {
+    "rabbitMQ": {
+      "prefetchCount": 100,
+      "connectionString": "amqps://nnbhglxk:OyPflRd0OVBDL6w5XuXz-bLMTYqIZNlH@jackal.rmq.cloudamqp.com/nnbhglxk",
+      "port": 1883
+    }
+  }
+}

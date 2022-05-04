@@ -6,5 +6,6 @@ namespace HomeCare.Domain.Clients
     {
         Client GetByUserName(string username);
         Client GetById(Guid clientId);
+        IEnumerable<Client> GetAll();
     }
 }

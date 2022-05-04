@@ -2,19 +2,11 @@
 
 namespace HomeCare.RabbitMQ
 {
-    internal class PaymentRequestQueueService : IPaymentRequestQueueService
+    internal class PaymentRequestQueueService : QueueService, IPaymentRequestQueueService
     {
-        private readonly RabbitMqOptions _options;
-
         public PaymentRequestQueueService(RabbitMqOptions options)
+            : base(options.Uri, options.RequestedQueueName)
         {
-            _options = options;
-        }
-
-        public void Publish(Payment payment)
-        {
-            var messageBroker = new MessageBroker(_options.Uri, _options.RequestedQueueName);
-            messageBroker.Publish(payment.Id);
         }
     }
 }
