@@ -13,6 +13,10 @@ namespace HomeCare.WebApi.Payments.Models
         public static PaymentSummaryResponse Parse(IEnumerable<Payment> payment)
         {
             var first = payment.FirstOrDefault();
+            if (first == null)
+            {
+                return new PaymentSummaryResponse();
+            }
 
             return new PaymentSummaryResponse
             {
