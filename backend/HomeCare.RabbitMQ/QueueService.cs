@@ -7,6 +7,8 @@ namespace HomeCare.RabbitMQ
 {
     internal abstract class QueueService
     {
+        private IConnection _connection;
+
         public string Uri { get; }
         public string QueueName { get; }
 
@@ -37,19 +39,20 @@ namespace HomeCare.RabbitMQ
                                  routingKey: QueueName,
                                  basicProperties: properties,
                                  body: body);
-            channel.Close();
         }
 
         private IModel CreateChannel()
         {
             var factory = new ConnectionFactory() { Uri = new Uri(Uri) };
-            var connection = factory.CreateConnection();
-            return connection.CreateModel();
+            _connection = factory.CreateConnection();
+
+            return _connection.CreateModel();
         }
 
         private void Setup()
         {
             using IModel channel = CreateChannel();
+
             channel.QueueDeclare(queue: QueueName,
                                  durable: true,
                                  exclusive: false,
@@ -57,6 +60,14 @@ namespace HomeCare.RabbitMQ
                                  arguments: null);
 
             channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+        }
+
+        ~QueueService()
+        {
+            if (_connection.IsOpen)
+            {
+                _connection.Close();
+            }
         }
     }
 }
