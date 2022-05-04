@@ -1,4 +1,4 @@
-import {HttpGet} from '../utils/HttpRequest'
+import {HttpGet} from '../utils/SupplierClient'
 
 export const START_DATA_LOADING = 'SupplierState/START_DATA_LOADING';
 export const SUPPLIERS_LOADED = 'SupplierState/SUPPLIERS_LOADED';
@@ -10,10 +10,10 @@ function startDataLoading() {
     };
 }
 
-function suppliersLoaded(suppliers, page, totalPages) {
+function suppliersLoaded(suppliers) {
     return {
         type: SUPPLIERS_LOADED,
-        payload: {suppliers: suppliers, page: page, totalPages: totalPages}
+        payload: {suppliers: suppliers}
     };
 }
 
@@ -23,7 +23,6 @@ function supplierLoaded(supplier) {
         payload: {supplier: supplier}
     };
 }
-
 
 export function getSupplier(supplierId) {
     if (localStorage.getItem(supplierId)) {
@@ -36,13 +35,13 @@ export function getSupplier(supplierId) {
         return (dispatch) => {
             dispatch(startDataLoading());
 
-            HttpGet(`characters/${supplierId}?`)
+            HttpGet(`supplier/${supplierId}`)
                 .then(result => {
                     try {
                         if (result.status === 200) {
-                            dispatch(supplierLoaded(result.data.data.results[0]))
+                            dispatch(supplierLoaded(result.data))
                         } else {
-                            throw new Error(`Marvel API bad response. Status code ${result.status}.`);
+                            throw new Error(`API bad response. Status code ${result.status}.`);
                         }
                     } catch (error) {
                         console.error(error);
@@ -57,38 +56,32 @@ export function listSuppliers(options) {
     return (dispatch) => {
         dispatch(startDataLoading());
         const {
-            offset,
-            name,
-            sortName,
-            limit,
+            latitude,
+            longitude,
+            range,
+            orderBy,
+            serviceName
         } = Object.assign({
-            offset: 0,
-            name: '',
-            sortName: '',
-            limit: 20,
+            latitude: 3,
+            longitude: 3,
+            range: 3,
+            orderBy: 'price',
+            serviceName: '',
         }, options);
 
-        let url = `characters?offset=${offset}&orderBy=${sortName}name&limit=${limit}`;
-        if (name) {
-            url += `&nameStartsWith=${name}`;
-        }
+        let url = `suppliers/search?latitude=${latitude}&longitude=${longitude}&range=${range}&orderBy=${orderBy}&serviceName=${serviceName}`;
 
         HttpGet(url)
             .then(result => {
                 try {
                     if (result.status === 200) {
-                        if (offset > result.data.data.total) {
-                            throw new Error('Page does not exist.');
-                        } else {
-                            const page = Math.floor(result.data.data.total / limit);
-                            dispatch(suppliersLoaded(result.data.data.results, page, result.data.data.total % limit > 0 ? page + 1 : page))
-                        }
+                        dispatch(suppliersLoaded(result.data))
                     } else {
-                        throw new Error(`Marvel API bad response. Status code ${result.status}.`);
+                        throw new Error(`API bad response. Status code ${result.status}.`);
                     }
                 } catch (error) {
                     console.error(error);
-                    dispatch(suppliersLoaded([], 0, 0))
+                    dispatch(suppliersLoaded([]))
                 }
             });
     };

@@ -3,7 +3,7 @@ import axios from 'axios'
 class HttpRequest {
     static instance() {
         return axios.create({
-            baseURL: 'https://gateway.marvel.com/v1/public/',
+            baseURL: 'https://app-suppliers-puc-pi-homecare.azurewebsites.net/',
             timeout: 10000,
             method: 'get',
             responseType: 'json'
@@ -12,7 +12,6 @@ class HttpRequest {
 
     async Get(urlApi, param = {}) {
         try {
-            urlApi += "&apikey=71c6c66725f512871978edcf015edc26";
             const get = HttpRequest.instance().get(urlApi, param);
             return await get;
         } catch (error) {

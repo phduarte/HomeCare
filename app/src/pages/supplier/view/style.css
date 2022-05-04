@@ -7,12 +7,17 @@ p {
     text-align: justify;
 }
 
+.tags {
+    margin: 15px 0;
+}
+
 .card-price {
     text-align: center;
     border: 1px solid #EFEFEF;
     height: 100%;
     background: white;
     border-radius: 5px;
+    padding: 15px;
 }
 
 .card-price .cards {
@@ -29,15 +34,27 @@ p {
     background: white;
     border-radius: 5px;
     height: 100%;
+    padding: 15px;
 }
 
 .view-supplier .img-fluid {
     max-width: 300px;
     max-height: 300px;
     height: 300px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.75), 0 3px 6px rgba(0,0,0,0.70);
+    border: 1px ;
 }
 
-.btn-primary {
+.btn-primary, .btn-outline-primary {
     margin: 10px 0;
+}
+
+.form-label {
+    color: #1F2E5D;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 6px;
 }

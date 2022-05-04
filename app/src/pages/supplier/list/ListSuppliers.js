@@ -8,10 +8,6 @@ import './style.css'
 
 export default class ListSuppliers extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.actions.listSuppliers();
     }
@@ -38,11 +34,14 @@ export default class ListSuppliers extends Component {
                             {!this.props.loading && this.props.suppliers &&
                                 this.props.suppliers.map(item =>
                                     <SupplierCard
-                                        key={item.id}
-                                        id={item.id}
+                                        key={item.supplierId}
+                                        id={item.supplierId}
                                         name={item.name}
                                         description={item.description}
-                                        thumbnail={item.thumbnail.path + '.' + item.thumbnail.extension}
+                                        image={item.image}
+                                        rate={item.rate}
+                                        price={item.price}
+                                        tags={item.tags}
                                     />
                                 )
                             }
