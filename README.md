@@ -1,12 +1,7 @@
-# Projeto Integrado
+# Projeto Integrado 
+**PUC - Arquitetura de Software Distribuído - 2021/22**
 
-### Tema
-Aplicativo para contratação de serviços gerais
-
-### Objetivo
-Desenvolver um aplicativo PWA para gerenciar o processo de contratação e confirmação de prestação de serviços utilizando arquitetura em microserviços e baseada em eventos.
-
-### Sumário
+# Sumário
 
 - [Cronograma](#cronograma)
 - [Design Thinking](#design-thinking)
@@ -16,6 +11,12 @@ Desenvolver um aplicativo PWA para gerenciar o processo de contratação e confi
 - [Registro de Decisões](#registro-de-decis%C3%B5es-arquiteturais-adr)
 - [Construção](#constru%C3%A7%C3%A3o)
 - [Referências](#refer%C3%AAncia-1)
+
+# Objetivo
+
+Desenvolver um aplicativo PWA para gerenciar o processo de contratação e confirmação de prestação de serviços utilizando arquitetura em microserviços e baseada em eventos.
+
+Aplicativo para contratação de serviços gerais
 
 # Cronograma
 
@@ -147,6 +148,8 @@ Contém o detalhamento das especificações do sistema.
 ## Casos de Uso
 
 Esses são todos os casos de uso identificados através da análise dos requisitos.
+
+Em destaque estão os casos de uso mais críticos, principalmente o de Pagar Serviço, que precisa ter duas capacidades, ser resiliente e assíncrono, porque não queremos que o cliente fique muito tempo esperando e caso ocorra algum erro por defeito no sistema, não queremos que o cliente precise refazer seu pagamento.
 
 ![projeto_integrado-Caso de Uso.drawio.png](/doc/caso-uso.png)
 
