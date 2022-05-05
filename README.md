@@ -258,7 +258,7 @@ Pontes, Guilherme. Progressive Web Apps . Casa do Código. Pesqueisa realizada p
 ### Suporte da comunidade (dúvida em fóruns, stackoverflowe etc):
 Possui o fórum do React que está no GitHub da Meta (facebook) ou o fórum do steackoverflow, onde conseguimos identificar a participação ativa e interação entre as pessoas respondendo as perguntas e compartilhando conhecimentos. Analisando o gráfico de download da npm trends, podemos perceber o número gigantesco de pessoas interessadas no React no último ano.
 
-- [app](https://google.com.br)
+- [app](https://homecare-pi-apf.herokuapp.com/)
 
 [Voltar para o topo](#projeto-integrado)
 
