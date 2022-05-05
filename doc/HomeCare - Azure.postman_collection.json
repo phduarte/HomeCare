@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "8bf6cfb1-00d4-4bd3-9c1f-4a7ba0c99040",
-		"name": "HomeCare - Local",
+		"name": "HomeCare - Azure",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,12 +11,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5010/client/login?username=paulo&password=123",
+					"raw": "https://app-clients-puc-pi-homecare.azurewebsites.net/client/login?username=paulo&password=123",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-clients-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5010",
 					"path": [
 						"client",
 						"login"
@@ -41,12 +42,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5011/suppliers/search?latitude=0&longitude=0&range=10&orderBy=price&serviceName=pedreiro",
+					"raw": "https://app-suppliers-puc-pi-homecare.azurewebsites.net/suppliers/search?latitude=0&longitude=0&range=10&orderBy=price&serviceName=pedreiro",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-suppliers-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5011",
 					"path": [
 						"suppliers",
 						"search"
@@ -92,12 +94,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:5012/contract/emit",
+					"raw": "https://app-contracts-puc-pi-homecare.azurewebsites.net/contract/emit",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-contracts-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5012",
 					"path": [
 						"contract",
 						"emit"
@@ -112,12 +115,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5013/payments/by-contract/{{contractId}}",
+					"raw": "https://app-payments-puc-pi-homecare.azurewebsites.net/payments/by-contract/{{contractId}}",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-payments-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5013",
 					"path": [
 						"payments",
 						"by-contract",
@@ -133,12 +137,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5011/supplier/login?username=prestador1&password=123",
+					"raw": "https://app-suppliers-puc-pi-homecare.azurewebsites.net/supplier/login?username=prestador1&password=123",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-suppliers-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5011",
 					"path": [
 						"supplier",
 						"login"
@@ -172,12 +177,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:5012/contract/done",
+					"raw": "https://app-contracts-puc-pi-homecare.azurewebsites.net/contract/done",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-contracts-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5012",
 					"path": [
 						"contract",
 						"done"
@@ -201,12 +207,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:5012/contract/finish",
+					"raw": "https://app-contracts-puc-pi-homecare.azurewebsites.net/contract/finish",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"app-contracts-puc-pi-homecare",
+						"azurewebsites",
+						"net"
 					],
-					"port": "5012",
 					"path": [
 						"contract",
 						"finish"
