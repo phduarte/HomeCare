@@ -289,7 +289,7 @@ Quando uma mensagem uma Azure Functions realiza o tratamento da mensagem enviand
 
 ![log_azure_functions](/doc/log_azure_functions.png)
 
-### Notificações
+### Integrações
 
 No nosso fluxo, sempre que um prestador é contratado é enviado um e-mail para lhe informar que o cliente entrará em contato e também um e-mail para o cliente informando os dados de contato do prestador.
 
