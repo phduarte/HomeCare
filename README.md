@@ -36,31 +36,28 @@ Design Thinking não tem relação com design gráfico, o objetivo dele é estim
 
 Aqui temos um checklist que serve como base para condução da reunião e posteriormente registro de uma forma ampla aqui.
 
-Como resultado deste workshop será gerado o [MVP](/Projeto-Integrado-%2D-Contratação-de-Serviços-Gerais/2.-MVP) que utilizaremos para a PoC.
+Como resultado deste workshop chegamos ao [MVP](#mvp) que utilizaremos para a PoC.
 
 ## Roteiro
 
 ### Briefing
-- [X] Hipótese
-- [X] Inovação
+- [X] Criar hipóteses
+- [X] Pensar de forma inovadora
 - [X] Focar na doença e não no sintoma
 - [X] Standing in the Shoes "Vestir o sapato de quem manifestou o problema"
-
-Ex: Se eu tiver um aplicativo que dá pra cadastrar serviços e buscar profissionais, eu poderia ...
 
 ### Restrições
 
 - [X] Tempo : De acordo com o calendário do curso aprox. 1 mês.
-- [X] Dinheiro : Pode ser executado localmente, eliminando o custo com cloud.
+- [X] Dinheiro : Utilização de provedores gratuitos.
 - [x] Público Alvo : Pra essa versão não tem.
 - [X] Acessibilidade : Pra essa versão não tem.
-- [X] Tecnologia : .NET Core, RabbitMQ
-
-Ex: Pelo público alvo do sistema, ele precisa ser XXX. Precisa estar no ar antes de XXXX devido prazo para avaliação da PoC...
+- [X] Tecnologia : .NET Core, RabbitMQ, React
 
 ### Definição do Problema
 
 - [X] Empatia : Pegamos como base um cenário real enriquecido com as experiências dos integrantes do workshop e conseguirmos identificar alguns problemas que o usuário teria ao tentar procurar e contratar um serviço.
+
 - [X] Decidir : Conseguimos separar problemas e identificar qual seria o foco principal que traz maior risco, ou que causaria mais problemas.
 
 ### Definição da Solução
@@ -78,9 +75,8 @@ Aula 1 - Análise, Projeto e Avaliação de Arquitetura de Software - Prof. Edua
 # MVP
 
 ## Objetivo
-Cliente conseguir encontrar prestadores de serviço conforme sua necessidade, pagar o serviço e em caso de algum problema na execução, poder ter o seu dinheiro de volta.
 
-Prestador poder receber o dinheiro após a execução do serviço.
+Cliente conseguir encontrar prestadores de serviço conforme sua necessidade, pagar o serviço e receber os dados de contato do fornecedor para poder combinar o serviço.
 
 ## História
 
@@ -99,7 +95,7 @@ Prestador poder receber o dinheiro após a execução do serviço.
 - para o cliente.
 - O cliente pode abrir uma disputa para reclamar sobre a não prestação do serviço a fim de evitar que o dinheiro seja liberado indevidamente.
 
-O resultado detalhado deve virar especificações no documento de [Requisitos](/Projeto-Integrado-%2D-Contratação-de-Serviços-Gerais/3.-Requisitos).
+O resultado detalhado deve virar especificações no documento de requisitos na fase de [Análise](#an%C3%A1lise).
 
 [Voltar para o topo](#projeto-integrado)
 
@@ -198,7 +194,7 @@ Detalhamento do motivo de escolha de tecnologia, provedor ou ferramenta mais imp
 Durante o curso tivemos acesso à 3 tecnologias para desenvolvimento backend, sendo, DotNet, Java e NodeJs.
 Sintaticamente falando, as 3 são bastante semelhantes, principalmente DotNet e NodeJs.
 
-<IMG  src="https://github.com/CharlieDigital/js-ts-csharp/raw/main/js-ts-csharp.png"  alt="JS vs TS vs CS"/>
+<IMG src="https://github.com/CharlieDigital/js-ts-csharp/raw/main/js-ts-csharp.png"  alt="JS vs TS vs CS"/>
 
 ### Benchmark Performance
 
