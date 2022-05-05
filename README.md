@@ -248,7 +248,7 @@ O react é one-way binding, a transição dos dados entre o DOM e os componentes
 Do ponto de vista de performance, o melhor é atualizar quando for necessário atualizar, como clicando em no botão para submeter o formulário, ao invés de atualizar os atributos no JavaScript todas vez que as tags são alteradas. O React ganha sentido porque ele enfatiza fortemente a atualização do estado dos objetos via eventos. Ele condena o acesso aos componentes explicitamente, e isso torna-o simples, rápido e de fácil entendimento.
 O livro Progressive Web APPs trás a comparação de renderização no navegador entre os principais frameworks front de mercado. O gráfico representa em milissegundo o tempo necessário para renderização no navegador redesenhar a página e o React se destaca nitidamente.
 
-![desempenho-react](/doc/desempenho.png)
+![desempenho-react](/doc/desempenho-react.png)
 
 Pontes, Guilherme. Progressive Web Apps . Casa do Código. Pesqueisa realizada pelo site auth0.com (PEYROTT, 2016)
 
@@ -330,5 +330,5 @@ Os processos podem ficar ser desligados caso fiquem muito tempo sem receber requ
 - Trabalho Final - Arquitetura Java - Fabio Leandro Rodrigues Cordeiro
 - [RabbitMQ o que é e como utilizar](https://blog.cedrotech.com/rabbitmq-o-que-e-e-como-utilizar#:~:text=Dentre%20as%20aplicabilidades%20do%20RabbitMQ,fila%20de%20trabalhos%20em%20background.)
 - [Javascript x CSharp](https://github.com/CharlieDigital/js-ts-csharp)
-- [Documentação React] https://pt-br.reactjs.org/docs/getting-started.html
+- [Documentação React](https://pt-br.reactjs.org/docs/getting-started.html)
 - Livro da casa do código: Pontes, Guilherme. Progressive Web Apps . Casa do Código.
