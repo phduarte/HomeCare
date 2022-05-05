@@ -1,7 +1,9 @@
 # HomeCare
 Aplicativo para contratação de serviços gerais
 
-**PUC/MG - Curso de Pós-Graduação em Arquitetura de Software Distribuído - 2021/22**
+Projeto Integrado de Conclusão do Curso
+
+PUC/MG - Curso de Pós-Graduação em Arquitetura de Software Distribuído - 2021/22
 
 
 # Sumário
@@ -73,7 +75,7 @@ Como resultado deste workshop chegamos ao [MVP](#mvp) que utilizaremos para a Po
 
 Aula 1 - Análise, Projeto e Avaliação de Arquitetura de Software - Prof. Eduardo Batista Oliveira Santos
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # MVP
 
@@ -100,7 +102,7 @@ Cliente conseguir encontrar prestadores de serviço conforme sua necessidade, pa
 
 O resultado detalhado deve virar especificações no documento de requisitos na fase de [Análise](#an%C3%A1lise).
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # Análise
 
@@ -161,7 +163,7 @@ Este foi o caso de uso mais crítido, por incluir validações de regras de neg�
 
 ![projeto_integrado-Sequence.drawio (1).png](/doc/sequencia.png)
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # Arquitetura
 
@@ -177,7 +179,7 @@ O uso de uma arquitetura baseada em eventos é importante para garantir a consis
 - Na matéria de API e WebServices fizemos um diagrama que pode ser usado como base.
 - Na matéria de Backend exercitamos a visualização de microserviços e como e quando separá-los.
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # Registro de Decisões Arquiteturais (ADR)
 
@@ -265,7 +267,7 @@ Possui o fórum do React que está no GitHub da Meta (facebook) ou o fórum do s
 
 - [app](https://homecare-pi-apf.herokuapp.com/)
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # Construção
 
@@ -308,7 +310,7 @@ Criamos uma conta na plataforma SendGrid da Twillo para utilizamos sua api de en
 
 ![sendgrid](doc/sendgrid.png)
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # POC
 
@@ -327,7 +329,7 @@ Os últimos 2 passos ocorrem de forma assíncrona, então pode ser que o pagamen
 
 Os processos podem ficar ser desligados caso fiquem muito tempo sem receber requisição e isso poderá gerar lentidão devido ao warmup na primeira requisição de cada microserviço.
 
-[Voltar para o topo](#projeto-integrado)
+[Voltar para o topo](#homecare)
 
 # Referência
 
