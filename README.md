@@ -1,5 +1,8 @@
-# Projeto Integrado 
-**PUC - Arquitetura de Software Distribuído - 2021/22**
+# HomeCare
+Aplicativo para contratação de serviços gerais
+
+**PUC/MG - Curso de Pós-Graduação em Arquitetura de Software Distribuído - 2021/22**
+
 
 # Sumário
 
@@ -10,13 +13,12 @@
 - [Arquitetura](#arquitetura)
 - [Registro de Decisões](#registro-de-decis%C3%B5es-arquiteturais-adr)
 - [Construção](#constru%C3%A7%C3%A3o)
+- [POC](#poc)
 - [Referências](#refer%C3%AAncia-1)
 
 # Objetivo
 
 Desenvolver um aplicativo PWA para gerenciar o processo de contratação e confirmação de prestação de serviços utilizando arquitetura em microserviços e baseada em eventos.
-
-Aplicativo para contratação de serviços gerais
 
 # Cronograma
 
@@ -308,7 +310,7 @@ Criamos uma conta na plataforma SendGrid da Twillo para utilizamos sua api de en
 
 [Voltar para o topo](#projeto-integrado)
 
-# Uso
+# POC
 
 ### Testando através do Postman
 
