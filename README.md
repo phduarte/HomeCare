@@ -13,14 +13,21 @@ PUC/MG - Curso de Pós-Graduação em Arquitetura de Software Distribuído - 202
 - [MVP](#mvp)
 - [Requisitos](#an%C3%A1lise)
 - [Arquitetura](#arquitetura)
-- [Registro de Decisões](#registro-de-decis%C3%B5es-arquiteturais-adr)
-- [Construção](#constru%C3%A7%C3%A3o)
+- [Registro de Decisões Arquiteturais](#registro-de-decis%C3%B5es-arquiteturais-adr)
+- [Implementação e implantação](#implementa%C3%A7%C3%A3o-e-implanta%C3%A7%C3%A3o)
 - [POC](#poc)
+- [Resultados](#resultados)
+- [Conclusão](#conclus%C3%A3o-1)
 - [Referências](#refer%C3%AAncia-1)
 
-# Objetivo
+# Resumo
 
-Desenvolver um aplicativo PWA para gerenciar o processo de contratação e confirmação de prestação de serviços utilizando arquitetura em microserviços e baseada em eventos.
+
+
+# 1. Objetivo do trabalho
+
+- Desenvolver um aplicativo PWA para gerenciamento do processo de contratação e confirmação de prestação de serviços
+- Utilizar uma arquitetura em microserviços e orientada a eventos.
 
 # Cronograma
 
@@ -269,9 +276,13 @@ Possui o fórum do React que está no GitHub da Meta (facebook) ou o fórum do s
 
 [Voltar para o topo](#homecare)
 
-# Construção
+# Implementação e Implantação
 
 ## Back-End
+
+Adotamos o padrão de webAPI conhecida como Minimal APIs, disponibilizada no .NET 6 e que pareceu bem aderente ao conceito de microserviços, de fato, simplificou a estrutura dos projetos de microserviços.
+
+Também utilizamos padrões de abordagens como DDD e Clean Architecture, o que permitiu gerenciar bem as regras de negócio, ter uma boa separação de escopos o que resultou em consistência de cada um dos componentes, ou seja, conseguimos localizar rapidamente componentes que devem ser alterados ou substituídos.
 
 ### Microserviços
 
@@ -330,6 +341,16 @@ Os últimos 2 passos ocorrem de forma assíncrona, então pode ser que o pagamen
 Os processos podem ficar ser desligados caso fiquem muito tempo sem receber requisição e isso poderá gerar lentidão devido ao warmup na primeira requisição de cada microserviço.
 
 [Voltar para o topo](#homecare)
+
+# Resultados
+
+Através da conta de estudante disponibilizada pela PUC criamos vários serviços de aplicativo, cada um em uma localização diferente. Apesar de não ter sido identificado como requisito não funcional para o sistema, a possibilidade de utilizar diferentes localização pode ser aproveitada como uma estratégia de otimização de custo, em situações onde um microserviço possui menor criticidade e a baixa latência não é um risco para a aplicação, pode se adotar datacenters conforme o menor custo.
+
+# Conclusão
+
+A utilização de uma arquitetura em microserviços e orientada a eventos para o contexto estudado demonstrou ser eficiente ao fornecer a capacidade de escalarmos os caminhos mais críticos da nossa aplicação para aumentar seu desempenho e também protegê-los com a estratégia de utilização de filas.
+
+Toda a infraestrutura do sistema foi construída em nuvem e diversos recursos da aplicação puderam ser terceirizados, o que resultou em economia de tempo e dinheiro, agilizou a construção da POC e viabilizou a hospedagem sem precisar ter o custo de propriedade dos servidores.
 
 # Referência
 
