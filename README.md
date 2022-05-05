@@ -23,8 +23,8 @@ Um processo de contratação e confirmação de prestação de serviços usando 
 3. [X] Documento de Arquitetura
 4. [X] Criar Documento OpenAPI
 5. [X] Criar Projeto Backend (depende do item 3)
-6. [ ] Criar Client PWA (depende do item 3)
-7. [ ] Documentar e revisão do estudo (depende do item 6)
+6. [X] Criar Client PWA (depende do item 3)
+7. [ ] Documentação e revisão do estudo (depende do item 6)
 8. [ ] Preparar a apresentação (depende do item 7)
 
 # Design Thinking
@@ -275,7 +275,7 @@ Possui o fórum do React que está no GitHub da Meta (facebook) ou o fórum do s
 
 ### Deployment
 
-![image](https://user-images.githubusercontent.com/7060211/164146238-3f37d3a9-4119-468d-8d61-b11effa2194c.png)
+![image](https://github.com/phduarte/HomeCare/blob/master/doc/azure_app_services.png)
 
 ## Referência
 
