@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Suppliers;
+﻿using HomeCare.Domain.Aggregates.Suppliers;
 using NUnit.Framework;
 
 namespace HomeCare.Domain.Tests

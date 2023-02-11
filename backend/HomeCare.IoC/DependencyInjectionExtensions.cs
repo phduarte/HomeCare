@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using HomeCare.Data.InMemory;
-using HomeCare.Domain;
-using HomeCare.PayPal;
-using HomeCare.RabbitMQ;
-using HomeCare.SendGrid;
 using Microsoft.Extensions.Configuration;
+using HomeCare.Adapters.SendGrid;
+using HomeCare.Adapters.RabbitMQ;
+using HomeCare.Adapters.PayPal;
+using HomeCare.Domain.Aggregates;
 
 namespace HomeCare.IoC
 {

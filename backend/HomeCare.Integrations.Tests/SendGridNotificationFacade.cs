@@ -1,5 +1,5 @@
-//using HomeCare.Domain.Contracts;
-//using HomeCare.Domain.Payments;
+//using HomeCare.Domain.Aggregates.Contracts;
+//using HomeCare.Domain.Aggregates.Payments;
 //using HomeCare.SendGrid;
 //using Moq;
 //using NUnit.Framework;

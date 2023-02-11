@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
 
 namespace HomeCare.Data.InMemory
 {

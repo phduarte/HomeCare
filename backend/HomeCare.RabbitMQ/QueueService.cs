@@ -1,9 +1,9 @@
-﻿using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System.Text;
 
-namespace HomeCare.RabbitMQ
+namespace HomeCare.Adapters.RabbitMQ
 {
     internal abstract class QueueService
     {

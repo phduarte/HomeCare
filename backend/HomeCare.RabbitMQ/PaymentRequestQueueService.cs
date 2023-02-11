@@ -1,6 +1,6 @@
-﻿using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
 
-namespace HomeCare.RabbitMQ
+namespace HomeCare.Adapters.RabbitMQ
 {
     internal class PaymentRequestQueueService : QueueService, IPaymentRequestQueueService
     {

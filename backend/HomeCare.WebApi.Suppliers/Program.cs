@@ -1,4 +1,4 @@
-using HomeCare.Domain.Suppliers;
+using HomeCare.Domain.Aggregates.Suppliers;
 using HomeCare.IoC;
 using HomeCare.WebApi.Suppliers.Models;
 

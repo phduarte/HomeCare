@@ -1,6 +1,6 @@
-﻿using HomeCare.Domain.Clients;
-using NUnit.Framework;
+﻿using HomeCare.Domain.Aggregates.Clients;
 using Moq;
+using NUnit.Framework;
 using System;
 
 namespace HomeCare.Domain.Tests.Clients

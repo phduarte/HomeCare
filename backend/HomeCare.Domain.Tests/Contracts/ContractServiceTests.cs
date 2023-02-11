@@ -1,18 +1,19 @@
-﻿using HomeCare.Domain.Clients;
-using HomeCare.Domain.Payments;
-using HomeCare.Domain.Suppliers;
+﻿using HomeCare.Domain.Aggregates.Clients;
+using HomeCare.Domain.Aggregates.Payments;
+using HomeCare.Domain.Aggregates.Shared;
+using HomeCare.Domain.Aggregates.Suppliers;
 using Moq;
 using NUnit.Framework;
 using System;
 
-namespace HomeCare.Domain.Contracts
+namespace HomeCare.Domain.Aggregates.Contracts
 {
     internal class ContractServiceTests
     {
         private Mock<IContractsRepository> _contractsRepository;
         private Mock<ISupplierService> _supplierService;
         private Mock<IClientService> _clientService;
-        private Mock<INotificationFacade> _notificationFacade;
+        private Mock<INotificationSender> _notificationFacade;
         private Mock<IPaymentRequestQueueService> _paymentRequestQueue;
         private IContractService _contractService;
         private Contract contract;
@@ -25,7 +26,7 @@ namespace HomeCare.Domain.Contracts
             _contractsRepository = new Mock<IContractsRepository>();
             _supplierService = new Mock<ISupplierService>();
             _clientService = new Mock<IClientService>();
-            _notificationFacade = new Mock<INotificationFacade>();
+            _notificationFacade = new Mock<INotificationSender>();
             _paymentRequestQueue = new Mock<IPaymentRequestQueueService>();
             _contractService = new ContractService(_contractsRepository.Object, _supplierService.Object, _clientService.Object, _notificationFacade.Object, _paymentRequestQueue.Object);
 
@@ -68,7 +69,7 @@ namespace HomeCare.Domain.Contracts
                 .Verify(s => s.Publish(It.IsAny<Payment>()), Times.Once);
 
             _notificationFacade
-                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+                .Verify(s => s.SendAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
 
             Assert.AreEqual(ContractStatus.Emitted, ret.Status);
         }
@@ -95,7 +96,7 @@ namespace HomeCare.Domain.Contracts
             Assert.Throws<ContractNotFoundException>(() => _contractService.Done(contract.Id));
 
             _notificationFacade
-                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+                .Verify(s => s.SendAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
         }
 
         [Test]

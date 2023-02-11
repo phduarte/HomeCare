@@ -1,8 +1,7 @@
-﻿using HomeCare.Domain;
-using HomeCare.Domain.Contracts;
-using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Contracts;
+using HomeCare.Domain.Aggregates.Payments;
 
-namespace HomeCare.RabbitMQ
+namespace HomeCare.Adapters.RabbitMQ
 {
     internal class PaymentRequestMessage
     {

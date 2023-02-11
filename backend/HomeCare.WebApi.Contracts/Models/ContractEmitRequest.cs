@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Contracts;
+﻿using HomeCare.Domain.Aggregates.Contracts;
 namespace HomeCare.WebApi.Contracts.Model;
 
 public class ContractEmitRequest

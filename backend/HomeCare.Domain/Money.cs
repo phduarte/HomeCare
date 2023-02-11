@@ -1,4 +1,6 @@
-﻿namespace HomeCare.Domain
+﻿using HomeCare.Domain;
+
+namespace HomeCare
 {
     public class Money : ValueObject
     {

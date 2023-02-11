@@ -1,4 +1,4 @@
-﻿namespace HomeCare.RabbitMQ
+﻿namespace HomeCare.Adapters.RabbitMQ
 {
     public class RabbitMqOptions
     {

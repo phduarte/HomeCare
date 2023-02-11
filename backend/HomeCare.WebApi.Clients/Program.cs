@@ -1,4 +1,4 @@
-using HomeCare.Domain.Clients;
+using HomeCare.Domain.Aggregates.Clients;
 using HomeCare.IoC;
 using HomeCare.WebApi.Clients.Models;
 

@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Clients;
+﻿using HomeCare.Domain.Aggregates.Clients;
 
 namespace HomeCare.Data.InMemory
 {

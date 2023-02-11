@@ -1,4 +1,5 @@
-﻿using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
+using HomeCare.Domain.Aggregates.Shared;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ namespace HomeCare.Domain.Tests.Payments
         private Mock<IPaymentGateway> _paymentGateway;
         private Mock<IPaymentsRepository> _paymentsRepository;
         private Mock<IPaymentsProcessedQueueService> _paymentsProcessedQueue;
-        private Mock<INotificationFacade> _notificationFacade;
+        private Mock<INotificationSender> _notificationSender;
         private IPaymentService _paymentService;
 
         [SetUp]
@@ -19,8 +20,8 @@ namespace HomeCare.Domain.Tests.Payments
             _paymentGateway = new Mock<IPaymentGateway>();
             _paymentsRepository = new Mock<IPaymentsRepository>();
             _paymentsProcessedQueue = new Mock<IPaymentsProcessedQueueService>();
-            _notificationFacade = new Mock<INotificationFacade>();
-            _paymentService = new PaymentService(_paymentGateway.Object, _paymentsRepository.Object, _paymentsProcessedQueue.Object, _notificationFacade.Object);
+            _notificationSender = new Mock<INotificationSender>();
+            _paymentService = new PaymentService(_paymentGateway.Object, _paymentsRepository.Object, _paymentsProcessedQueue.Object, _notificationSender.Object);
         }
 
         [Test]
@@ -132,9 +133,9 @@ namespace HomeCare.Domain.Tests.Payments
         [Test]
         public void Confirm_ShouldSendNotification_WhenPaymentCompleted()
         {
-            Domain.Clients.Client client = new();
-            Domain.Suppliers.Supplier supplier = new();
-            var contract = Contracts.Contract.Create().With(client).With(supplier).With(1).With("description").With(DateTime.Today);
+            Aggregates.Clients.Client client = new();
+            Aggregates.Suppliers.Supplier supplier = new();
+            var contract = Aggregates.Contracts.Contract.Create().With(client).With(supplier).With(1).With("description").With(DateTime.Today);
             var payment = new Payment(Guid.NewGuid(), contract, "payment description", PaymentStatus.Created, 1);
 
             _paymentsRepository
@@ -143,8 +144,8 @@ namespace HomeCare.Domain.Tests.Payments
 
             _paymentService.Confirm(Guid.Empty);
 
-            _notificationFacade
-                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+            _notificationSender
+                .Verify(s => s.SendAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
@@ -156,8 +157,8 @@ namespace HomeCare.Domain.Tests.Payments
 
             Assert.Throws<PaymentNotFoundException>(() => _paymentService.Confirm(Guid.NewGuid()));
 
-            _notificationFacade
-                .Verify(s => s.SendEmailAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+            _notificationSender
+                .Verify(s => s.SendAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
         }
     }
 }

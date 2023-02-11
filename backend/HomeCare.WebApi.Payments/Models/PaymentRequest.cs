@@ -1,9 +1,9 @@
 ﻿namespace HomeCare.WebApi.Payments.Models;
 
-using HomeCare.Domain.Clients;
-using HomeCare.Domain.Contracts;
-using HomeCare.Domain.Payments;
-using HomeCare.Domain.Suppliers;
+using HomeCare.Domain.Aggregates.Clients;
+using HomeCare.Domain.Aggregates.Contracts;
+using HomeCare.Domain.Aggregates.Payments;
+using HomeCare.Domain.Aggregates.Suppliers;
 
 internal class PaymentRequest
 {

@@ -26,7 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HomeCare.Domain\HomeCare.Domain.csproj" />
+    <ProjectReference Include="..\HomeCare.Domain.Aggregates\HomeCare.Domain.Aggregates.csproj" />
+    <ProjectReference Include="..\HomeCare.Domain\HomeCare.csproj" />
   </ItemGroup>
 
 </Project>

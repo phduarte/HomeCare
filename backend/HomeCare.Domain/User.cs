@@ -1,6 +1,8 @@
-﻿namespace HomeCare.Domain
+﻿using HomeCare.Domain;
+
+namespace HomeCare
 {
-    public abstract class User : Entity<Guid>
+    public abstract class User : Entity
     {
         public string Name { get; set; }
         public string Email { get; set; }

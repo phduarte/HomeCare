@@ -1,4 +1,4 @@
-using HomeCare.Domain.Payments;
+using HomeCare.Domain.Aggregates.Payments;
 using HomeCare.IoC;
 using HomeCare.WebApi.Payments.Models;
 

@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Suppliers;
+﻿using HomeCare.Domain.Aggregates.Suppliers;
 namespace HomeCare.WebApi.Suppliers.Models;
 
 public class SupplierSearchResponse

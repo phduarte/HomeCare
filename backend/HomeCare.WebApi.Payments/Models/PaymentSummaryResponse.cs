@@ -1,5 +1,4 @@
-﻿using HomeCare.Domain;
-using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
 
 namespace HomeCare.WebApi.Payments.Models
 {

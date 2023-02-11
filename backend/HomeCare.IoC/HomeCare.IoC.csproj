@@ -12,10 +12,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HomeCare.Data\HomeCare.Data.InMemory.csproj" />
-    <ProjectReference Include="..\HomeCare.Domain\HomeCare.Domain.csproj" />
-    <ProjectReference Include="..\HomeCare.PayPal\HomeCare.PayPal.csproj" />
-    <ProjectReference Include="..\HomeCare.RabbitMQ\HomeCare.RabbitMQ.csproj" />
-    <ProjectReference Include="..\HomeCare.SendGrid\HomeCare.SendGrid.csproj" />
+    <ProjectReference Include="..\HomeCare.Domain.Aggregates\HomeCare.Domain.Aggregates.csproj" />
+    <ProjectReference Include="..\HomeCare.Domain\HomeCare.csproj" />
+    <ProjectReference Include="..\HomeCare.PayPal\HomeCare.Adapters.PayPal.csproj" />
+    <ProjectReference Include="..\HomeCare.RabbitMQ\HomeCare.Adapters.RabbitMQ.csproj" />
+    <ProjectReference Include="..\HomeCare.SendGrid\HomeCare.Adapters.SendGrid.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using HomeCare.Domain.Payments;
+﻿using HomeCare.Domain.Aggregates.Payments;
 
-namespace HomeCare.PayPal
+namespace HomeCare.Adapters.PayPal
 {
     public class PayPalPaymentGateway : IPaymentGateway
     {

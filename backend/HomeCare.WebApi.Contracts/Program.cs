@@ -1,4 +1,4 @@
-using HomeCare.Domain.Contracts;
+using HomeCare.Domain.Aggregates.Contracts;
 using HomeCare.IoC;
 using HomeCare.WebApi.Contracts.Model;
 

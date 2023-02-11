@@ -1,4 +1,4 @@
-﻿using HomeCare.Domain.Contracts;
+﻿using HomeCare.Domain.Aggregates.Contracts;
 
 namespace HomeCare.Data.InMemory
 {

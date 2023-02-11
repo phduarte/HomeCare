@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using HomeCare.Domain.Payments;
+using HomeCare.Domain.Aggregates.Payments;
 using Microsoft.Extensions.Configuration;
 
-namespace HomeCare.RabbitMQ
+namespace HomeCare.Adapters.RabbitMQ
 {
     public static class DependencyInjectionExtensions
     {

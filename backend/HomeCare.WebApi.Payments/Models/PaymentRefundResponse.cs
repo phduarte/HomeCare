@@ -1,6 +1,6 @@
 ﻿namespace HomeCare.WebApi.Payments.Models;
 
-using HomeCare.Domain.Payments;
+using HomeCare.Domain.Aggregates.Payments;
 
 internal class PaymentRefundResponse
 {
